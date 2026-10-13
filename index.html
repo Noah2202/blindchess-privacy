@@ -10,189 +10,456 @@
   <title>ViSuChess – Datenschutz / Privacy Policy</title>
   <style>
     :root{
-      --bg:#111214;--surface:#1c1e22;--raised:#25282d;--navSurface:#20202b;
-      --text:#f4f4f5;--muted:#aaa7bb;--border:#303339;--navBorder:#383745;
-      --purple:#8860e5;--purpleInk:#fff;--purpleSoft:rgba(136,96,229,.14);
-      --purpleBorder:rgba(136,96,229,.34);--shadow:#24153e;
+      --bg:#111214;
+      --surface:#1c1e22;
+      --text:#f4f4f5;
+      --muted:#aaa7bb;
+      --border:#303339;
+      --nav-border:#383745;
+      --purple:#8860e5;
+      --purple-soft:rgba(136,96,229,.14);
+      --purple-glow:rgba(136,96,229,.28);
+      --header:rgba(17,18,20,.86);
     }
     html[data-theme="light"]{
-      --bg:#f5f5f7;--surface:#fff;--raised:#fff;--navSurface:#fff;
-      --text:#1a1a1a;--muted:#777184;--border:#e5e5ea;--navBorder:#e8e5ef;
-      --purple:#7041cf;--purpleInk:#fff;--purpleSoft:rgba(112,65,207,.09);
-      --purpleBorder:rgba(112,65,207,.25);--shadow:#cfc4e8;
+      --bg:#f5f5f7;
+      --surface:#ffffff;
+      --text:#1a1a1a;
+      --muted:#777184;
+      --border:#e5e5ea;
+      --nav-border:#e8e5ef;
+      --purple:#7041cf;
+      --purple-soft:rgba(112,65,207,.09);
+      --purple-glow:rgba(112,65,207,.20);
+      --header:rgba(245,245,247,.88);
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(720px 360px at 50% -80px,var(--purpleSoft),transparent 72%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;line-height:1.65}
+    body{
+      margin:0;
+      background:
+        radial-gradient(760px 360px at 50% -120px,var(--purple-soft),transparent 70%),
+        var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    button{font:inherit}
     a{color:inherit;text-underline-offset:3px}
-    .wrap{width:min(calc(100% - 28px),860px);margin:auto}
+    .wrap{width:min(calc(100% - 32px),900px);margin:auto}
 
-    header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .page-progress{
+      position:fixed;top:0;left:0;z-index:30;height:3px;width:0;
+      background:var(--purple);
+      box-shadow:0 0 18px var(--purple-glow);
+      transition:width .12s linear;
+    }
+
+    header{
+      position:sticky;top:0;z-index:20;
+      background:var(--header);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+    }
     .bar{height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px}
-    .brand .suffix{color:var(--muted);font-weight:600}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;white-space:nowrap}
+    .brand .suffix{font-weight:600;color:var(--muted)}
     .mark{width:38px;height:38px;border-radius:12px;overflow:hidden;flex:0 0 auto}
-    .mark img{width:100%;height:100%;object-fit:contain;display:block}
-    .controls{display:flex;gap:8px}
-    .pill{min-width:42px;height:42px;border:1px solid var(--navBorder);background:var(--navSurface);color:var(--text);border-radius:14px;padding:0 12px;cursor:pointer;font-weight:700}
+    .mark img{width:100%;height:100%;display:block;object-fit:contain}
+    .controls{display:flex;align-items:center;gap:8px}
+    .icon-button{
+      min-width:42px;height:42px;padding:0 12px;
+      border:1px solid var(--nav-border);
+      border-radius:14px;
+      background:transparent;
+      color:var(--text);
+      font-weight:700;
+      cursor:pointer;
+      transition:transform .18s ease,border-color .18s ease,background .18s ease;
+    }
+    .icon-button:hover{transform:translateY(-1px);border-color:var(--purple);background:var(--purple-soft)}
 
-    .hero{padding:34px 0 18px}
-    .guide{background:var(--raised);border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:0 14px 40px color-mix(in srgb,var(--shadow) 25%,transparent)}
-    .guide-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
-    .guide-badge{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700}
-    .guide-icon{width:28px;height:28px;border-radius:10px;background:var(--purpleSoft);display:grid;place-items:center;color:var(--purple);font-size:13px}
-    .guide-meta{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
-    .intro-track{height:7px;border-radius:7px;background:var(--navBorder);overflow:hidden;margin-bottom:26px}
-    .intro-fill{width:100%;height:100%;background:var(--purple);border-radius:7px;position:relative}
-    .intro-fill:after{content:"";position:absolute;top:1px;left:1px;right:1px;height:1px;border-radius:1px;background:rgba(255,255,255,.18)}
-    .eyebrow{color:var(--muted);font-size:9px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:10px}
-    h1{font-size:clamp(38px,7vw,62px);line-height:1.02;letter-spacing:-.055em;margin:0 0 16px}
-    .lead{font-size:clamp(16px,2.3vw,19px);line-height:1.55;color:var(--muted);max-width:700px;margin:0}
-    .meta{color:var(--muted);font-size:12px;margin:16px 0 0}
+    .hero{padding:66px 0 38px;overflow:hidden}
+    .intro-label{
+      display:flex;align-items:center;gap:9px;
+      color:var(--muted);font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;
+      opacity:0;animation:fadeUp .55s .05s ease forwards;
+    }
+    .intro-dot{width:8px;height:8px;border-radius:50%;background:var(--purple);box-shadow:0 0 14px var(--purple-glow)}
+    .onboarding-line{
+      height:7px;border-radius:999px;background:var(--border);
+      overflow:hidden;margin:18px 0 34px;
+      opacity:0;animation:fadeUp .55s .10s ease forwards;
+    }
+    .onboarding-line span{
+      display:block;width:100%;height:100%;border-radius:inherit;background:var(--purple);
+      transform:scaleX(0);transform-origin:left center;
+      animation:growLine 1s .28s cubic-bezier(.22,.61,.36,1) forwards;
+      position:relative;
+    }
+    .onboarding-line span:after{content:"";position:absolute;left:1px;right:1px;top:1px;height:1px;background:rgba(255,255,255,.18);border-radius:2px}
+    h1{
+      margin:0;
+      font-size:clamp(46px,8vw,82px);
+      line-height:.96;
+      letter-spacing:-.065em;
+      max-width:790px;
+      opacity:0;animation:fadeUp .65s .18s ease forwards;
+    }
+    .lead{
+      margin:24px 0 0;max-width:700px;
+      color:var(--muted);font-size:clamp(17px,2.1vw,20px);line-height:1.6;
+      opacity:0;animation:fadeUp .65s .27s ease forwards;
+    }
+    .meta{
+      margin:20px 0 0;color:var(--muted);font-size:12px;
+      opacity:0;animation:fadeUp .65s .34s ease forwards;
+    }
 
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
-    .mini{border:1px solid var(--border);background:var(--surface);border-radius:16px;padding:16px;min-height:112px}
-    .mini-icon{width:30px;height:30px;border-radius:10px;background:var(--purpleSoft);color:var(--purple);display:grid;place-items:center;font-weight:900;margin-bottom:12px}
-    .mini b{display:block;font-size:13px;margin-bottom:5px}
-    .mini span{color:var(--muted);font-size:12px;line-height:1.45;display:block}
+    .quick-facts{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+      margin-top:54px;
+      opacity:0;animation:fadeUp .65s .4s ease forwards;
+    }
+    .fact{padding:18px 18px 18px 0;position:relative}
+    .fact+.fact{padding-left:18px;border-left:1px solid var(--border)}
+    .fact strong{display:block;font-size:13px;margin-bottom:4px}
+    .fact span{display:block;color:var(--muted);font-size:12px;line-height:1.45}
+    .fact-mark{color:var(--purple);font-weight:900;margin-right:5px}
 
-    .content{display:grid;gap:12px;padding:0 0 76px}
-    .card{border:1px solid var(--border);background:var(--raised);border-radius:24px;padding:clamp(20px,4vw,30px);box-shadow:0 8px 24px color-mix(in srgb,var(--shadow) 11%,transparent)}
-    .section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-    .section-bar{width:5px;height:28px;border-radius:5px;background:var(--purple);box-shadow:inset 0 1px rgba(255,255,255,.18)}
-    h2{font-size:clamp(22px,3vw,29px);line-height:1.15;letter-spacing:-.035em;margin:0}
-    h3{margin:26px 0 8px}
-    .card p,.card li{color:var(--muted)}
-    .card p{margin-top:0}
-    .card li+li{margin-top:8px}
+    .tabs-shell{
+      position:sticky;top:66px;z-index:15;
+      background:var(--header);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+    }
+    .tabs{
+      display:flex;gap:28px;overflow-x:auto;scrollbar-width:none;
+      position:relative;
+    }
+    .tabs::-webkit-scrollbar{display:none}
+    .tab{
+      position:relative;flex:0 0 auto;
+      border:0;background:transparent;color:var(--muted);
+      padding:18px 1px 16px;
+      font-size:13px;font-weight:700;
+      cursor:pointer;
+      transition:color .22s ease,transform .22s ease;
+    }
+    .tab:hover{color:var(--text)}
+    .tab[aria-selected="true"]{color:var(--text)}
+    .tab[aria-selected="true"]:after{
+      content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:3px 3px 0 0;
+      background:var(--purple);box-shadow:0 0 12px var(--purple-glow);
+      animation:tabIn .26s ease both;
+    }
 
-    .data{display:grid;gap:10px;margin-top:16px}
-    .item{border:1px solid var(--border);background:var(--surface);border-radius:16px;padding:16px}
-    .item b{display:block;margin-bottom:4px;font-size:13px}
-    .item p{margin:0;font-size:13px;line-height:1.55}
-    .callout{border:1px solid var(--purpleBorder);background:var(--purpleSoft);border-radius:16px;padding:17px;margin-top:16px}
-    .callout b{font-size:13px}
-    .callout p{margin:5px 0 0}
+    .content{padding:10px 0 86px}
+    .panel{display:none;animation:panelIn .38s cubic-bezier(.22,.61,.36,1) both}
+    .panel.active{display:block}
+    .section{
+      padding:48px 0;
+      border-bottom:1px solid var(--border);
+    }
+    .section:last-child{border-bottom:0}
+    .section-kicker{
+      color:var(--purple);font-size:10px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    h2{margin:0 0 20px;font-size:clamp(27px,4vw,38px);line-height:1.12;letter-spacing:-.045em}
+    .section>p{margin:0;max-width:760px;color:var(--muted);font-size:15px;line-height:1.75}
 
-    .providers{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
-    .provider{border:1px solid var(--border);background:var(--surface);border-radius:16px;padding:16px}
-    .provider b,.provider a{display:block}
-    .provider b{font-size:13px}
-    .provider span{display:block;color:var(--muted);font-size:12px;line-height:1.5;margin:4px 0 9px}
-    .provider a{font-size:12px;font-weight:700;color:var(--purple)}
+    .statement{
+      margin-top:28px;padding:18px 0 0;
+      border-top:1px solid var(--border);
+    }
+    .statement strong{display:block;font-size:13px;margin-bottom:6px}
+    .statement p{margin:0;color:var(--muted);font-size:14px}
 
-    .contact{margin-top:18px;border-radius:16px;background:var(--purple);color:var(--purpleInk);padding:18px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:inset 0 1px rgba(255,255,255,.16)}
-    .contact div div{font-size:12px;opacity:.84}
-    .contact a{font-weight:700;font-size:13px}
-    footer{border-top:1px solid var(--border);color:var(--muted);font-size:12px;padding:24px 0 36px}
+    .data-list{margin-top:12px}
+    .data-row{
+      display:grid;grid-template-columns:minmax(170px,230px) 1fr;gap:28px;
+      padding:24px 0;border-bottom:1px solid var(--border);
+      transition:transform .2s ease;
+    }
+    .data-row:last-child{border-bottom:0}
+    .data-row:hover{transform:translateX(4px)}
+    .data-row strong{font-size:13px;line-height:1.45}
+    .data-row p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
 
-    @media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.providers{grid-template-columns:1fr}}
-    @media(max-width:500px){.grid{grid-template-columns:1fr}.brand .suffix{display:none}.hero{padding-top:20px}.guide{padding:18px}.mini{min-height:0}}
+    .provider-list{margin-top:12px}
+    .provider-row{
+      display:grid;grid-template-columns:150px 1fr auto;gap:24px;align-items:center;
+      padding:22px 0;border-bottom:1px solid var(--border);
+    }
+    .provider-row:last-child{border-bottom:0}
+    .provider-row strong{font-size:13px}
+    .provider-row span{color:var(--muted);font-size:13px;line-height:1.55}
+    .provider-row a{font-size:12px;font-weight:700;color:var(--purple);white-space:nowrap;text-decoration:none}
+    .provider-row a:hover{text-decoration:underline}
+
+    .rights-list{margin:22px 0 0;padding:0;list-style:none}
+    .rights-list li{
+      position:relative;padding:14px 0 14px 28px;border-bottom:1px solid var(--border);
+      color:var(--muted);font-size:14px;
+    }
+    .rights-list li:last-child{border-bottom:0}
+    .rights-list li:before{content:"";position:absolute;left:2px;top:23px;width:8px;height:8px;border-radius:50%;background:var(--purple);box-shadow:0 0 10px var(--purple-glow)}
+
+    .contact-line{
+      margin-top:28px;padding-top:24px;border-top:1px solid var(--border);
+      display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    }
+    .contact-line strong{display:block;font-size:14px}
+    .contact-line span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+    .contact-link{
+      display:inline-flex;align-items:center;gap:8px;
+      color:#fff;background:var(--purple);text-decoration:none;
+      min-height:44px;padding:0 16px;border-radius:14px;font-size:13px;font-weight:700;
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .contact-link:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--purple-glow)}
+
+    footer{border-top:1px solid var(--border);padding:26px 0 38px;color:var(--muted);font-size:12px}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes growLine{to{transform:scaleX(1)}}
+    @keyframes tabIn{from{transform:scaleX(.35);opacity:.35}to{transform:scaleX(1);opacity:1}}
+    @keyframes panelIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:760px){
+      .quick-facts{grid-template-columns:repeat(2,1fr)}
+      .fact:nth-child(3){border-left:0;border-top:1px solid var(--border);padding-left:0}
+      .fact:nth-child(4){border-top:1px solid var(--border)}
+      .data-row{grid-template-columns:1fr;gap:8px}
+      .provider-row{grid-template-columns:1fr auto;gap:6px 16px}
+      .provider-row span{grid-column:1 / -1;grid-row:2}
+      .provider-row a{grid-column:2;grid-row:1}
+    }
+    @media(max-width:520px){
+      .hero{padding-top:44px}
+      h1{font-size:clamp(43px,15vw,62px)}
+      .brand .suffix{display:none}
+      .tabs{gap:24px}
+      .quick-facts{grid-template-columns:1fr}
+      .fact,.fact+.fact{padding:16px 0;border-left:0;border-top:1px solid var(--border)}
+      .fact:first-child{border-top:0}
+      .fact:nth-child(3){border-top:1px solid var(--border)}
+      .section{padding:38px 0}
+      .provider-row{grid-template-columns:1fr}
+      .provider-row a{grid-column:1;grid-row:auto;margin-top:4px}
+      .provider-row span{grid-column:1;grid-row:auto}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+    }
   </style>
 </head>
 <body>
+<div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+
 <header>
   <div class="wrap bar">
-    <div class="brand"><div class="mark"><img src="assets/logo.png" alt="ViSuChess Logo"></div><span>ViSuChess</span><span class="suffix" data-de="Datenschutz" data-en="Privacy">Datenschutz</span></div>
-    <div class="controls"><button class="pill" id="theme" aria-label="Theme wechseln">◐</button><button class="pill" id="lang">EN</button></div>
+    <div class="brand">
+      <div class="mark"><img src="assets/logo.png" alt="ViSuChess Logo"></div>
+      <span>ViSuChess</span>
+      <span class="suffix" data-de="Datenschutz" data-en="Privacy">Datenschutz</span>
+    </div>
+    <div class="controls">
+      <button class="icon-button" id="theme" aria-label="Theme wechseln">◐</button>
+      <button class="icon-button" id="lang" aria-label="Sprache wechseln">EN</button>
+    </div>
   </div>
 </header>
+
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="guide">
-        <div class="guide-toolbar">
-          <div class="guide-badge"><span class="guide-icon">◆</span><span data-de="Datenschutz" data-en="Privacy">Datenschutz</span></div>
-          <span class="guide-meta">ViSuChess · 1 / 1</span>
-        </div>
-        <div class="intro-track" aria-hidden="true"><div class="intro-fill"></div></div>
-        <div class="eyebrow" data-de="DEINE DATEN" data-en="YOUR DATA">DEINE DATEN</div>
-        <h1 data-de="Dein Schachtraining.<br>Deine Daten." data-en="Your chess training.<br>Your data.">Dein Schachtraining.<br>Deine Daten.</h1>
-        <p class="lead" data-de="Diese Datenschutzerklärung erklärt transparent, welche Daten ViSuChess verarbeitet, wofür sie benötigt werden und welche Wahlmöglichkeiten du hast." data-en="This Privacy Policy explains what data ViSuChess processes, why it is needed and which choices you have.">Diese Datenschutzerklärung erklärt transparent, welche Daten ViSuChess verarbeitet, wofür sie benötigt werden und welche Wahlmöglichkeiten du hast.</p>
-        <p class="meta" data-de="Stand: 14. Oktober 2026" data-en="Last updated: October 14, 2026">Stand: 14. Oktober 2026</p>
-      </div>
-      <div class="grid">
-        <div class="mini"><div class="mini-icon">✓</div><b data-de="Keine Werbung" data-en="No advertising">Keine Werbung</b><span data-de="Keine Werbe-SDKs oder Datenverkäufe." data-en="No advertising SDKs or sale of personal data.">Keine Werbe-SDKs oder Datenverkäufe.</span></div>
-        <div class="mini"><div class="mini-icon">⌂</div><b data-de="Lokale Daten" data-en="Local data">Lokale Daten</b><span data-de="Viele Einstellungen und Trainingsdaten bleiben auf deinem Gerät." data-en="Many settings and training data stay on your device.">Viele Einstellungen und Trainingsdaten bleiben auf deinem Gerät.</span></div>
-        <div class="mini"><div class="mini-icon">↗</div><b data-de="Optionale Konten" data-en="Optional accounts">Optionale Konten</b><span data-de="Google und Lichess werden nur genutzt, wenn du sie verbindest." data-en="Google and Lichess are used only when you connect them.">Google und Lichess werden nur genutzt, wenn du sie verbindest.</span></div>
-        <div class="mini"><div class="mini-icon">×</div><b data-de="Kontolöschung" data-en="Account deletion">Kontolöschung</b><span data-de="Dein ViSuChess-Konto kann in der App gelöscht werden." data-en="Your ViSuChess account can be deleted in the app.">Dein ViSuChess-Konto kann in der App gelöscht werden.</span></div>
+      <div class="intro-label"><span class="intro-dot"></span><span data-de="VISUCHESS · DATENSCHUTZ" data-en="VISUCHESS · PRIVACY">VISUCHESS · DATENSCHUTZ</span></div>
+      <div class="onboarding-line" aria-hidden="true"><span></span></div>
+      <h1 data-de="Dein Schachtraining.<br>Deine Daten." data-en="Your chess training.<br>Your data.">Dein Schachtraining.<br>Deine Daten.</h1>
+      <p class="lead" data-de="Transparent, verständlich und ohne Kleingedrucktes: Hier erfährst du, welche Daten ViSuChess verarbeitet und warum." data-en="Transparent, understandable and without fine print: here you can see what data ViSuChess processes and why.">Transparent, verständlich und ohne Kleingedrucktes: Hier erfährst du, welche Daten ViSuChess verarbeitet und warum.</p>
+      <p class="meta" data-de="Stand: 14. Oktober 2026" data-en="Last updated: October 14, 2026">Stand: 14. Oktober 2026</p>
+
+      <div class="quick-facts" aria-label="Kurzüberblick">
+        <div class="fact"><strong><span class="fact-mark">✓</span><span data-de="Keine Werbung" data-en="No advertising">Keine Werbung</span></strong><span data-de="Keine Werbe-SDKs oder Datenverkäufe." data-en="No advertising SDKs or sale of personal data.">Keine Werbe-SDKs oder Datenverkäufe.</span></div>
+        <div class="fact"><strong><span class="fact-mark">✓</span><span data-de="Lokale Daten" data-en="Local data">Lokale Daten</span></strong><span data-de="Viele Einstellungen bleiben auf deinem Gerät." data-en="Many settings remain on your device.">Viele Einstellungen bleiben auf deinem Gerät.</span></div>
+        <div class="fact"><strong><span class="fact-mark">✓</span><span data-de="Optionale Konten" data-en="Optional accounts">Optionale Konten</span></strong><span data-de="Google und Lichess nur bei Nutzung." data-en="Google and Lichess only when used.">Google und Lichess nur bei Nutzung.</span></div>
+        <div class="fact"><strong><span class="fact-mark">✓</span><span data-de="Kontolöschung" data-en="Account deletion">Kontolöschung</span></strong><span data-de="Direkt in ViSuChess verfügbar." data-en="Available directly in ViSuChess.">Direkt in ViSuChess verfügbar.</span></div>
       </div>
     </div>
   </section>
 
+  <nav class="tabs-shell" aria-label="Datenschutzbereiche">
+    <div class="wrap tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-overview" aria-selected="true" aria-controls="panel-overview" data-panel="overview" data-de="Übersicht" data-en="Overview">Übersicht</button>
+      <button class="tab" role="tab" id="tab-data" aria-selected="false" aria-controls="panel-data" data-panel="data" data-de="Daten" data-en="Data">Daten</button>
+      <button class="tab" role="tab" id="tab-services" aria-selected="false" aria-controls="panel-services" data-panel="services" data-de="Dienste" data-en="Services">Dienste</button>
+      <button class="tab" role="tab" id="tab-rights" aria-selected="false" aria-controls="panel-rights" data-panel="rights" data-de="Rechte & Kontakt" data-en="Rights & contact">Rechte & Kontakt</button>
+    </div>
+  </nav>
+
   <div class="wrap content">
-    <section class="card">
-      <div class="section-head"><span class="section-bar"></span><h2 data-de="1. Geltungsbereich" data-en="1. Scope">1. Geltungsbereich</h2></div>
-      <p data-de="Diese Datenschutzerklärung gilt für ViSuChess, eine Schach-Trainings-App mit lokalen Trainingsfunktionen, optionaler Kontosynchronisierung, Online-Partien mit Freunden, optionaler Lichess-Anbindung und Premium-Funktionen." data-en="This Privacy Policy applies to ViSuChess, a chess training app with local training features, optional account sync, online games with friends, an optional Lichess integration and Premium features.">Diese Datenschutzerklärung gilt für ViSuChess, eine Schach-Trainings-App mit lokalen Trainingsfunktionen, optionaler Kontosynchronisierung, Online-Partien mit Freunden, optionaler Lichess-Anbindung und Premium-Funktionen.</p>
-      <div class="callout"><b data-de="Diese Website selbst" data-en="This website itself">Diese Website selbst</b><p data-de="verwendet keine Analytics-, Werbe- oder Tracking-Skripte und setzt keine eigenen Marketing-Cookies." data-en="uses no analytics, advertising or tracking scripts and sets no marketing cookies of its own.">verwendet keine Analytics-, Werbe- oder Tracking-Skripte und setzt keine eigenen Marketing-Cookies.</p></div>
-    </section>
+    <section class="panel active" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" data-panel-name="overview">
+      <div class="section">
+        <div class="section-kicker" data-de="01 · GRUNDLAGE" data-en="01 · BASICS">01 · GRUNDLAGE</div>
+        <h2 data-de="Geltungsbereich" data-en="Scope">Geltungsbereich</h2>
+        <p data-de="Diese Datenschutzerklärung gilt für ViSuChess, eine Schach-Trainings-App mit lokalen Trainingsfunktionen, optionaler Kontosynchronisierung, Online-Partien mit Freunden, optionaler Lichess-Anbindung und Premium-Funktionen." data-en="This Privacy Policy applies to ViSuChess, a chess training app with local training features, optional account sync, online games with friends, an optional Lichess integration and Premium features.">Diese Datenschutzerklärung gilt für ViSuChess, eine Schach-Trainings-App mit lokalen Trainingsfunktionen, optionaler Kontosynchronisierung, Online-Partien mit Freunden, optionaler Lichess-Anbindung und Premium-Funktionen.</p>
+        <div class="statement"><strong data-de="Diese Website selbst" data-en="This website itself">Diese Website selbst</strong><p data-de="verwendet keine Analytics-, Werbe- oder Tracking-Skripte und setzt keine eigenen Marketing-Cookies." data-en="uses no analytics, advertising or tracking scripts and sets no marketing cookies of its own.">verwendet keine Analytics-, Werbe- oder Tracking-Skripte und setzt keine eigenen Marketing-Cookies.</p></div>
+      </div>
 
-    <section class="card">
-      <div class="section-head"><span class="section-bar"></span><h2 data-de="2. Welche Daten verarbeitet werden" data-en="2. Data we process">2. Welche Daten verarbeitet werden</h2></div>
-      <div class="data">
-        <div class="item"><b data-de="Lokale App-Daten" data-en="Local app data">Lokale App-Daten</b><p data-de="Sprache, Darstellung, lokal gespeicherte Partien, Trainingsergebnisse und App-Einstellungen können auf deinem Gerät gespeichert werden." data-en="Language, appearance, locally stored games, training results and app settings may be stored on your device.">Sprache, Darstellung, lokal gespeicherte Partien, Trainingsergebnisse und App-Einstellungen können auf deinem Gerät gespeichert werden.</p></div>
-        <div class="item"><b data-de="ViSuChess-Konto und Google-Anmeldung" data-en="ViSuChess account and Google sign-in">ViSuChess-Konto und Google-Anmeldung</b><p data-de="Bei Google-Anmeldung verarbeitet Appwrite eine eindeutige Nutzer-ID und von Google bereitgestellte Kontoinformationen zur Authentifizierung, etwa Name und E-Mail-Adresse. Zusätzlich können Nutzername und Fortschrittsdaten gespeichert werden." data-en="When signing in with Google, Appwrite processes a unique user ID and account information made available by Google for authentication, such as name and email address. Username and progress data may also be stored.">Bei Google-Anmeldung verarbeitet Appwrite eine eindeutige Nutzer-ID und von Google bereitgestellte Kontoinformationen zur Authentifizierung, etwa Name und E-Mail-Adresse. Zusätzlich können Nutzername und Fortschrittsdaten gespeichert werden.</p></div>
-        <div class="item"><b data-de="Partien und Trainingsfortschritt" data-en="Games and training progress">Partien und Trainingsfortschritt</b><p data-de="Für angemeldete Nutzer können gespeicherte Partien, Level/Fortschritt, Minispiel-Ergebnisse und freigeschaltete Bot-Level mit der Nutzer-ID synchronisiert werden." data-en="For signed-in users, saved games, level/progress, mini-game results and unlocked bot levels may be synchronized with the user ID.">Für angemeldete Nutzer können gespeicherte Partien, Level/Fortschritt, Minispiel-Ergebnisse und freigeschaltete Bot-Level mit der Nutzer-ID synchronisiert werden.</p></div>
-        <div class="item"><b data-de="Online-Partien mit Freunden" data-en="Online games with friends">Online-Partien mit Freunden</b><p data-de="Hierfür können technische Nutzer-IDs, Anzeigenamen, Raum-/Einladungs-ID, Züge, Uhrzeiten, Spielstatus und Zeitstempel verarbeitet werden." data-en="Technical user IDs, display names, room/invite IDs, moves, clocks, game status and timestamps may be processed.">Hierfür können technische Nutzer-IDs, Anzeigenamen, Raum-/Einladungs-ID, Züge, Uhrzeiten, Spielstatus und Zeitstempel verarbeitet werden.</p></div>
-        <div class="item"><b data-de="Optionale Lichess-Verbindung" data-en="Optional Lichess connection">Optionale Lichess-Verbindung</b><p data-de="Wenn du Lichess verbindest, wird ein OAuth-Zugriffstoken lokal geschützt gespeichert. Kontoinformationen sowie Spiele-/Puzzle-Anfragen werden nur für die verbundenen Funktionen verarbeitet." data-en="If you connect Lichess, an OAuth access token is stored in protected local storage. Account information and game/puzzle requests are processed only for the connected features.">Wenn du Lichess verbindest, wird ein OAuth-Zugriffstoken lokal geschützt gespeichert. Kontoinformationen sowie Spiele-/Puzzle-Anfragen werden nur für die verbundenen Funktionen verarbeitet.</p></div>
-        <div class="item"><b data-de="Premium und Käufe" data-en="Premium and purchases">Premium und Käufe</b><p data-de="RevenueCat verwaltet Premium-Berechtigungen. Dabei können die ViSuChess-Nutzer-ID sowie Produkt-, Kauf- und Berechtigungsinformationen verarbeitet werden. Zahlungen auf iOS werden von Apple abgewickelt; ViSuChess erhält keine vollständigen Kreditkartendaten." data-en="RevenueCat manages Premium entitlements and may process the ViSuChess user ID together with product, purchase and entitlement information. iOS payments are handled by Apple; ViSuChess does not receive full credit card details.">RevenueCat verwaltet Premium-Berechtigungen. Dabei können die ViSuChess-Nutzer-ID sowie Produkt-, Kauf- und Berechtigungsinformationen verarbeitet werden. Zahlungen auf iOS werden von Apple abgewickelt; ViSuChess erhält keine vollständigen Kreditkartendaten.</p></div>
+      <div class="section">
+        <div class="section-kicker" data-de="04 · PRIVATSPHÄRE" data-en="04 · PRIVACY">04 · PRIVATSPHÄRE</div>
+        <h2 data-de="Werbung, Tracking und Verkauf" data-en="Advertising, tracking and sale">Werbung, Tracking und Verkauf</h2>
+        <p data-de="ViSuChess enthält derzeit keine Drittanbieter-Werbung und keine Werbe-SDKs zum app- oder webseitenübergreifenden Tracking. Personenbezogene Daten werden nicht verkauft." data-en="ViSuChess currently contains no third-party advertising and no advertising SDKs for cross-app or cross-site tracking. Personal data is not sold.">ViSuChess enthält derzeit keine Drittanbieter-Werbung und keine Werbe-SDKs zum app- oder webseitenübergreifenden Tracking. Personenbezogene Daten werden nicht verkauft.</p>
       </div>
     </section>
 
-    <section class="card">
-      <div class="section-head"><span class="section-bar"></span><h2 data-de="3. Externe Dienste" data-en="3. External services">3. Externe Dienste</h2></div>
-      <p data-de="ViSuChess verkauft keine personenbezogenen Daten an Werbenetzwerke oder Datenhändler. Je nach verwendeter Funktion können folgende Dienste Daten verarbeiten:" data-en="ViSuChess does not sell personal data to ad networks or data brokers. Depending on the feature used, the following services may process data:">ViSuChess verkauft keine personenbezogenen Daten an Werbenetzwerke oder Datenhändler. Je nach verwendeter Funktion können folgende Dienste Daten verarbeiten:</p>
-      <div class="providers">
-        <div class="provider"><b>Appwrite</b><span data-de="Authentifizierung, Datenbank, Synchronisierung, Funktionen und Online-Partien." data-en="Authentication, database, synchronization, functions and online games.">Authentifizierung, Datenbank, Synchronisierung, Funktionen und Online-Partien.</span><a href="https://appwrite.io/privacy" rel="noopener">Privacy Policy ↗</a></div>
-        <div class="provider"><b>Google</b><span data-de="Optionale Anmeldung über Google OAuth." data-en="Optional sign-in via Google OAuth.">Optionale Anmeldung über Google OAuth.</span><a href="https://policies.google.com/privacy" rel="noopener">Privacy Policy ↗</a></div>
-        <div class="provider"><b>Apple</b><span data-de="App-Store-Vertrieb und iOS-Käufe/Abos." data-en="App Store distribution and iOS purchases/subscriptions.">App-Store-Vertrieb und iOS-Käufe/Abos.</span><a href="https://www.apple.com/legal/privacy/" rel="noopener">Privacy Policy ↗</a></div>
-        <div class="provider"><b>RevenueCat</b><span data-de="Verwaltung von Produkten, Käufen und Premium-Berechtigungen." data-en="Management of products, purchases and Premium entitlements.">Verwaltung von Produkten, Käufen und Premium-Berechtigungen.</span><a href="https://www.revenuecat.com/privacy/" rel="noopener">Privacy Policy ↗</a></div>
-        <div class="provider"><b>Lichess</b><span data-de="Nur bei freiwilliger Verbindung für Konto-, Spiele- und Puzzle-Funktionen." data-en="Only when voluntarily connected for account, game and puzzle features.">Nur bei freiwilliger Verbindung für Konto-, Spiele- und Puzzle-Funktionen.</span><a href="https://lichess.org/privacy" rel="noopener">Privacy Policy ↗</a></div>
+    <section class="panel" id="panel-data" role="tabpanel" aria-labelledby="tab-data" data-panel-name="data" hidden>
+      <div class="section">
+        <div class="section-kicker" data-de="02 · DATEN" data-en="02 · DATA">02 · DATEN</div>
+        <h2 data-de="Welche Daten verarbeitet werden" data-en="Data we process">Welche Daten verarbeitet werden</h2>
+        <div class="data-list">
+          <div class="data-row"><strong data-de="Lokale App-Daten" data-en="Local app data">Lokale App-Daten</strong><p data-de="Sprache, Darstellung, lokal gespeicherte Partien, Trainingsergebnisse und App-Einstellungen können auf deinem Gerät gespeichert werden." data-en="Language, appearance, locally stored games, training results and app settings may be stored on your device.">Sprache, Darstellung, lokal gespeicherte Partien, Trainingsergebnisse und App-Einstellungen können auf deinem Gerät gespeichert werden.</p></div>
+          <div class="data-row"><strong data-de="ViSuChess-Konto und Google-Anmeldung" data-en="ViSuChess account and Google sign-in">ViSuChess-Konto und Google-Anmeldung</strong><p data-de="Bei Google-Anmeldung verarbeitet Appwrite eine eindeutige Nutzer-ID und von Google bereitgestellte Kontoinformationen zur Authentifizierung, etwa Name und E-Mail-Adresse. Zusätzlich können Nutzername und Fortschrittsdaten gespeichert werden." data-en="When signing in with Google, Appwrite processes a unique user ID and account information made available by Google for authentication, such as name and email address. Username and progress data may also be stored.">Bei Google-Anmeldung verarbeitet Appwrite eine eindeutige Nutzer-ID und von Google bereitgestellte Kontoinformationen zur Authentifizierung, etwa Name und E-Mail-Adresse. Zusätzlich können Nutzername und Fortschrittsdaten gespeichert werden.</p></div>
+          <div class="data-row"><strong data-de="Partien und Trainingsfortschritt" data-en="Games and training progress">Partien und Trainingsfortschritt</strong><p data-de="Für angemeldete Nutzer können gespeicherte Partien, Level/Fortschritt, Minispiel-Ergebnisse und freigeschaltete Bot-Level mit der Nutzer-ID synchronisiert werden." data-en="For signed-in users, saved games, level/progress, mini-game results and unlocked bot levels may be synchronized with the user ID.">Für angemeldete Nutzer können gespeicherte Partien, Level/Fortschritt, Minispiel-Ergebnisse und freigeschaltete Bot-Level mit der Nutzer-ID synchronisiert werden.</p></div>
+          <div class="data-row"><strong data-de="Online-Partien mit Freunden" data-en="Online games with friends">Online-Partien mit Freunden</strong><p data-de="Hierfür können technische Nutzer-IDs, Anzeigenamen, Raum-/Einladungs-ID, Züge, Uhrzeiten, Spielstatus und Zeitstempel verarbeitet werden." data-en="Technical user IDs, display names, room/invite IDs, moves, clocks, game status and timestamps may be processed.">Hierfür können technische Nutzer-IDs, Anzeigenamen, Raum-/Einladungs-ID, Züge, Uhrzeiten, Spielstatus und Zeitstempel verarbeitet werden.</p></div>
+          <div class="data-row"><strong data-de="Optionale Lichess-Verbindung" data-en="Optional Lichess connection">Optionale Lichess-Verbindung</strong><p data-de="Wenn du Lichess verbindest, wird ein OAuth-Zugriffstoken lokal geschützt gespeichert. Kontoinformationen sowie Spiele-/Puzzle-Anfragen werden nur für die verbundenen Funktionen verarbeitet." data-en="If you connect Lichess, an OAuth access token is stored in protected local storage. Account information and game/puzzle requests are processed only for the connected features.">Wenn du Lichess verbindest, wird ein OAuth-Zugriffstoken lokal geschützt gespeichert. Kontoinformationen sowie Spiele-/Puzzle-Anfragen werden nur für die verbundenen Funktionen verarbeitet.</p></div>
+          <div class="data-row"><strong data-de="Premium und Käufe" data-en="Premium and purchases">Premium und Käufe</strong><p data-de="RevenueCat verwaltet Premium-Berechtigungen. Dabei können die ViSuChess-Nutzer-ID sowie Produkt-, Kauf- und Berechtigungsinformationen verarbeitet werden. Zahlungen auf iOS werden von Apple abgewickelt; ViSuChess erhält keine vollständigen Kreditkartendaten." data-en="RevenueCat manages Premium entitlements and may process the ViSuChess user ID together with product, purchase and entitlement information. iOS payments are handled by Apple; ViSuChess does not receive full credit card details.">RevenueCat verwaltet Premium-Berechtigungen. Dabei können die ViSuChess-Nutzer-ID sowie Produkt-, Kauf- und Berechtigungsinformationen verarbeitet werden. Zahlungen auf iOS werden von Apple abgewickelt; ViSuChess erhält keine vollständigen Kreditkartendaten.</p></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-kicker" data-de="05 · SPEICHERUNG" data-en="05 · RETENTION">05 · SPEICHERUNG</div>
+        <h2 data-de="Speicherung und Löschung" data-en="Retention and deletion">Speicherung und Löschung</h2>
+        <ul class="rights-list">
+          <li data-de="Lokale Daten bleiben grundsätzlich auf deinem Gerät, bis du sie löschst, App-Daten zurücksetzt oder die App deinstallierst." data-en="Local data generally remains on your device until you delete it, reset app data or uninstall the app.">Lokale Daten bleiben grundsätzlich auf deinem Gerät, bis du sie löschst, App-Daten zurücksetzt oder die App deinstallierst.</li>
+          <li data-de="Konto- und Fortschrittsdaten werden für die Dauer des Kontos bzw. solange gespeichert, wie sie für die jeweilige Funktion benötigt werden." data-en="Account and progress data is stored for the lifetime of the account or as long as needed for the relevant feature.">Konto- und Fortschrittsdaten werden für die Dauer des Kontos bzw. solange gespeichert, wie sie für die jeweilige Funktion benötigt werden.</li>
+          <li data-de="Die Kontolöschung in ViSuChess entfernt das aktive Appwrite-Konto sowie die zugehörigen Profil- und Fortschrittsdaten aus den aktiven App-Datenspeichern." data-en="Deleting the account in ViSuChess removes the active Appwrite account and associated profile and progress data from active app data stores.">Die Kontolöschung in ViSuChess entfernt das aktive Appwrite-Konto sowie die zugehörigen Profil- und Fortschrittsdaten aus den aktiven App-Datenspeichern.</li>
+          <li data-de="Bestehende Apple-Abos werden durch die Kontolöschung nicht automatisch gekündigt und müssen separat über Apple verwaltet werden." data-en="Existing Apple subscriptions are not automatically cancelled by account deletion and must be managed separately through Apple.">Bestehende Apple-Abos werden durch die Kontolöschung nicht automatisch gekündigt und müssen separat über Apple verwaltet werden.</li>
+        </ul>
       </div>
     </section>
 
-    <section class="card">
-      <div class="section-head"><span class="section-bar"></span><h2 data-de="4. Werbung, Tracking und Verkauf" data-en="4. Advertising, tracking and sale">4. Werbung, Tracking und Verkauf</h2></div>
-      <p data-de="ViSuChess enthält derzeit keine Drittanbieter-Werbung und keine Werbe-SDKs zum app- oder webseitenübergreifenden Tracking. Personenbezogene Daten werden nicht verkauft." data-en="ViSuChess currently contains no third-party advertising and no advertising SDKs for cross-app or cross-site tracking. Personal data is not sold.">ViSuChess enthält derzeit keine Drittanbieter-Werbung und keine Werbe-SDKs zum app- oder webseitenübergreifenden Tracking. Personenbezogene Daten werden nicht verkauft.</p>
+    <section class="panel" id="panel-services" role="tabpanel" aria-labelledby="tab-services" data-panel-name="services" hidden>
+      <div class="section">
+        <div class="section-kicker" data-de="03 · DIENSTE" data-en="03 · SERVICES">03 · DIENSTE</div>
+        <h2 data-de="Externe Dienste" data-en="External services">Externe Dienste</h2>
+        <p data-de="ViSuChess verkauft keine personenbezogenen Daten an Werbenetzwerke oder Datenhändler. Je nach verwendeter Funktion können folgende Dienste Daten verarbeiten:" data-en="ViSuChess does not sell personal data to ad networks or data brokers. Depending on the feature used, the following services may process data:">ViSuChess verkauft keine personenbezogenen Daten an Werbenetzwerke oder Datenhändler. Je nach verwendeter Funktion können folgende Dienste Daten verarbeiten:</p>
+        <div class="provider-list">
+          <div class="provider-row"><strong>Appwrite</strong><span data-de="Authentifizierung, Datenbank, Synchronisierung, Funktionen und Online-Partien." data-en="Authentication, database, synchronization, functions and online games.">Authentifizierung, Datenbank, Synchronisierung, Funktionen und Online-Partien.</span><a href="https://appwrite.io/privacy" rel="noopener">Privacy ↗</a></div>
+          <div class="provider-row"><strong>Google</strong><span data-de="Optionale Anmeldung über Google OAuth." data-en="Optional sign-in via Google OAuth.">Optionale Anmeldung über Google OAuth.</span><a href="https://policies.google.com/privacy" rel="noopener">Privacy ↗</a></div>
+          <div class="provider-row"><strong>Apple</strong><span data-de="App-Store-Vertrieb und iOS-Käufe/Abos." data-en="App Store distribution and iOS purchases/subscriptions.">App-Store-Vertrieb und iOS-Käufe/Abos.</span><a href="https://www.apple.com/legal/privacy/" rel="noopener">Privacy ↗</a></div>
+          <div class="provider-row"><strong>RevenueCat</strong><span data-de="Verwaltung von Produkten, Käufen und Premium-Berechtigungen." data-en="Management of products, purchases and Premium entitlements.">Verwaltung von Produkten, Käufen und Premium-Berechtigungen.</span><a href="https://www.revenuecat.com/privacy/" rel="noopener">Privacy ↗</a></div>
+          <div class="provider-row"><strong>Lichess</strong><span data-de="Nur bei freiwilliger Verbindung für Konto-, Spiele- und Puzzle-Funktionen." data-en="Only when voluntarily connected for account, game and puzzle features.">Nur bei freiwilliger Verbindung für Konto-, Spiele- und Puzzle-Funktionen.</span><a href="https://lichess.org/privacy" rel="noopener">Privacy ↗</a></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-kicker" data-de="07 · SICHERHEIT" data-en="07 · SECURITY">07 · SICHERHEIT</div>
+        <h2 data-de="Sicherheit und internationale Verarbeitung" data-en="Security and international processing">Sicherheit und internationale Verarbeitung</h2>
+        <p data-de="ViSuChess nutzt unter anderem verschlüsselte HTTPS-Verbindungen, kontobezogene Berechtigungen in Appwrite und geschützte lokale Speicherung für Lichess-Zugriffstoken. Einige Dienstleister arbeiten international; dadurch können Daten außerhalb deines Landes verarbeitet werden. Maßgeblich sind die Schutzmechanismen und Datenschutzbestimmungen des jeweiligen Anbieters." data-en="ViSuChess uses encrypted HTTPS connections, account-scoped permissions in Appwrite and protected local storage for Lichess access tokens. Some providers operate internationally, so data may be processed outside your country. The provider's safeguards and privacy terms apply.">ViSuChess nutzt unter anderem verschlüsselte HTTPS-Verbindungen, kontobezogene Berechtigungen in Appwrite und geschützte lokale Speicherung für Lichess-Zugriffstoken. Einige Dienstleister arbeiten international; dadurch können Daten außerhalb deines Landes verarbeitet werden. Maßgeblich sind die Schutzmechanismen und Datenschutzbestimmungen des jeweiligen Anbieters.</p>
+      </div>
     </section>
 
-    <section class="card">
-      <div class="section-head"><span class="section-bar"></span><h2 data-de="5. Speicherung und Löschung" data-en="5. Retention and deletion">5. Speicherung und Löschung</h2></div>
-      <ul>
-        <li data-de="Lokale Daten bleiben grundsätzlich auf deinem Gerät, bis du sie löschst, App-Daten zurücksetzt oder die App deinstallierst." data-en="Local data generally remains on your device until you delete it, reset app data or uninstall the app.">Lokale Daten bleiben grundsätzlich auf deinem Gerät, bis du sie löschst, App-Daten zurücksetzt oder die App deinstallierst.</li>
-        <li data-de="Konto- und Fortschrittsdaten werden für die Dauer des Kontos bzw. solange gespeichert, wie sie für die jeweilige Funktion benötigt werden." data-en="Account and progress data is stored for the lifetime of the account or as long as needed for the relevant feature.">Konto- und Fortschrittsdaten werden für die Dauer des Kontos bzw. solange gespeichert, wie sie für die jeweilige Funktion benötigt werden.</li>
-        <li data-de="Die Kontolöschung in ViSuChess entfernt das aktive Appwrite-Konto sowie die zugehörigen Profil- und Fortschrittsdaten aus den aktiven App-Datenspeichern." data-en="Deleting the account in ViSuChess removes the active Appwrite account and associated profile and progress data from active app data stores.">Die Kontolöschung in ViSuChess entfernt das aktive Appwrite-Konto sowie die zugehörigen Profil- und Fortschrittsdaten aus den aktiven App-Datenspeichern.</li>
-        <li data-de="Bestehende Apple-Abos werden durch die Kontolöschung nicht automatisch gekündigt und müssen separat über Apple verwaltet werden." data-en="Existing Apple subscriptions are not automatically cancelled by account deletion and must be managed separately through Apple.">Bestehende Apple-Abos werden durch die Kontolöschung nicht automatisch gekündigt und müssen separat über Apple verwaltet werden.</li>
-      </ul>
-    </section>
+    <section class="panel" id="panel-rights" role="tabpanel" aria-labelledby="tab-rights" data-panel-name="rights" hidden>
+      <div class="section">
+        <div class="section-kicker" data-de="06 · DEINE RECHTE" data-en="06 · YOUR RIGHTS">06 · DEINE RECHTE</div>
+        <h2 data-de="Deine Rechte" data-en="Your rights">Deine Rechte</h2>
+        <p data-de="Soweit die DSGVO gilt, kannst du insbesondere Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch verlangen. Einwilligungen kannst du mit Wirkung für die Zukunft widerrufen. Außerdem kannst du dich bei einer zuständigen Datenschutzaufsichtsbehörde beschweren." data-en="Where the GDPR applies, you may have rights including access, correction, deletion, restriction, data portability and objection. Consent can be withdrawn for the future. You may also lodge a complaint with a competent data protection authority.">Soweit die DSGVO gilt, kannst du insbesondere Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch verlangen. Einwilligungen kannst du mit Wirkung für die Zukunft widerrufen. Außerdem kannst du dich bei einer zuständigen Datenschutzaufsichtsbehörde beschweren.</p>
+      </div>
 
-    <section class="card">
-      <div class="section-head"><span class="section-bar"></span><h2 data-de="6. Deine Rechte" data-en="6. Your rights">6. Deine Rechte</h2></div>
-      <p data-de="Soweit die DSGVO gilt, kannst du insbesondere Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch verlangen. Einwilligungen kannst du mit Wirkung für die Zukunft widerrufen. Außerdem kannst du dich bei einer zuständigen Datenschutzaufsichtsbehörde beschweren." data-en="Where the GDPR applies, you may have rights including access, correction, deletion, restriction, data portability and objection. Consent can be withdrawn for the future. You may also lodge a complaint with a competent data protection authority.">Soweit die DSGVO gilt, kannst du insbesondere Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch verlangen. Einwilligungen kannst du mit Wirkung für die Zukunft widerrufen. Außerdem kannst du dich bei einer zuständigen Datenschutzaufsichtsbehörde beschweren.</p>
-    </section>
-
-    <section class="card">
-      <div class="section-head"><span class="section-bar"></span><h2 data-de="7. Sicherheit und internationale Verarbeitung" data-en="7. Security and international processing">7. Sicherheit und internationale Verarbeitung</h2></div>
-      <p data-de="ViSuChess nutzt unter anderem verschlüsselte HTTPS-Verbindungen, kontobezogene Berechtigungen in Appwrite und geschützte lokale Speicherung für Lichess-Zugriffstoken. Einige Dienstleister arbeiten international; dadurch können Daten außerhalb deines Landes verarbeitet werden. Maßgeblich sind die Schutzmechanismen und Datenschutzbestimmungen des jeweiligen Anbieters." data-en="ViSuChess uses encrypted HTTPS connections, account-scoped permissions in Appwrite and protected local storage for Lichess access tokens. Some providers operate internationally, so data may be processed outside your country. The provider's safeguards and privacy terms apply.">ViSuChess nutzt unter anderem verschlüsselte HTTPS-Verbindungen, kontobezogene Berechtigungen in Appwrite und geschützte lokale Speicherung für Lichess-Zugriffstoken. Einige Dienstleister arbeiten international; dadurch können Daten außerhalb deines Landes verarbeitet werden. Maßgeblich sind die Schutzmechanismen und Datenschutzbestimmungen des jeweiligen Anbieters.</p>
-    </section>
-
-    <section class="card">
-      <div class="section-head"><span class="section-bar"></span><h2 data-de="8. Änderungen und Kontakt" data-en="8. Changes and contact">8. Änderungen und Kontakt</h2></div>
-      <p data-de="Diese Datenschutzerklärung wird aktualisiert, wenn sich Funktionen, Dienstleister oder rechtliche Anforderungen ändern. Für Datenschutzanfragen kannst du das öffentliche Privacy-Repository auf GitHub verwenden. Bitte poste dort keine Passwörter, Tokens, vollständigen Zahlungsdaten oder andere sensible Informationen." data-en="This Privacy Policy may be updated when features, providers or legal requirements change. For privacy questions, you can use the public privacy repository on GitHub. Do not post passwords, tokens, full payment information or other sensitive data there.">Diese Datenschutzerklärung wird aktualisiert, wenn sich Funktionen, Dienstleister oder rechtliche Anforderungen ändern. Für Datenschutzanfragen kannst du das öffentliche Privacy-Repository auf GitHub verwenden. Bitte poste dort keine Passwörter, Tokens, vollständigen Zahlungsdaten oder andere sensible Informationen.</p>
-      <div class="contact"><div><b>ViSuChess Privacy</b><div data-de="Datenschutzfragen und Feedback" data-en="Privacy questions and feedback">Datenschutzfragen und Feedback</div></div><a href="https://github.com/Noah2202/blindchess-privacy/issues" rel="noopener" data-de="Auf GitHub kontaktieren →" data-en="Contact on GitHub →">Auf GitHub kontaktieren →</a></div>
+      <div class="section">
+        <div class="section-kicker" data-de="08 · KONTAKT" data-en="08 · CONTACT">08 · KONTAKT</div>
+        <h2 data-de="Änderungen und Kontakt" data-en="Changes and contact">Änderungen und Kontakt</h2>
+        <p data-de="Diese Datenschutzerklärung wird aktualisiert, wenn sich Funktionen, Dienstleister oder rechtliche Anforderungen ändern. Für Datenschutzanfragen kannst du das öffentliche Privacy-Repository auf GitHub verwenden. Bitte poste dort keine Passwörter, Tokens, vollständigen Zahlungsdaten oder andere sensible Informationen." data-en="This Privacy Policy may be updated when features, providers or legal requirements change. For privacy questions, you can use the public privacy repository on GitHub. Do not post passwords, tokens, full payment information or other sensitive data there.">Diese Datenschutzerklärung wird aktualisiert, wenn sich Funktionen, Dienstleister oder rechtliche Anforderungen ändern. Für Datenschutzanfragen kannst du das öffentliche Privacy-Repository auf GitHub verwenden. Bitte poste dort keine Passwörter, Tokens, vollständigen Zahlungsdaten oder andere sensible Informationen.</p>
+        <div class="contact-line">
+          <div><strong>ViSuChess Privacy</strong><span data-de="Datenschutzfragen und Feedback" data-en="Privacy questions and feedback">Datenschutzfragen und Feedback</span></div>
+          <a class="contact-link" href="https://github.com/Noah2202/blindchess-privacy/issues" rel="noopener"><span data-de="Auf GitHub kontaktieren" data-en="Contact on GitHub">Auf GitHub kontaktieren</span><span aria-hidden="true">→</span></a>
+        </div>
+      </div>
     </section>
   </div>
 </main>
+
 <footer><div class="wrap">ViSuChess · Privacy Policy · Version 1.0 · <span data-de="Keine Tracker auf dieser Seite" data-en="No trackers on this page">Keine Tracker auf dieser Seite</span></div></footer>
+
 <script>
-  const langBtn=document.getElementById('lang'),themeBtn=document.getElementById('theme');
-  let lang=localStorage.getItem('visuchess-privacy-lang')||(navigator.language||'').toLowerCase().startsWith('de')?'de':'en';
+  const langBtn=document.getElementById('lang');
+  const themeBtn=document.getElementById('theme');
+  const tabs=[...document.querySelectorAll('.tab')];
+  const panels=[...document.querySelectorAll('.panel')];
+  const pageProgress=document.getElementById('pageProgress');
+
+  let lang=localStorage.getItem('visuchess-privacy-lang')||((navigator.language||'').toLowerCase().startsWith('de')?'de':'en');
   let theme=localStorage.getItem('visuchess-privacy-theme')||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
-  function applyLang(){document.documentElement.lang=lang;document.querySelectorAll('[data-de][data-en]').forEach(el=>el.innerHTML=el.dataset[lang]);langBtn.textContent=lang==='de'?'EN':'DE';document.title=lang==='de'?'ViSuChess – Datenschutz / Privacy Policy':'ViSuChess – Privacy Policy'}
-  function applyTheme(){document.documentElement.dataset.theme=theme;document.querySelector('meta[name="theme-color"]').content=theme==='dark'?'#111214':'#f5f5f7';themeBtn.textContent=theme==='dark'?'◐':'◑'}
+
+  function applyLang(){
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-de][data-en]').forEach(el=>{el.innerHTML=el.dataset[lang]});
+    langBtn.textContent=lang==='de'?'EN':'DE';
+    document.title=lang==='de'?'ViSuChess – Datenschutz / Privacy Policy':'ViSuChess – Privacy Policy';
+  }
+
+  function applyTheme(){
+    document.documentElement.dataset.theme=theme;
+    document.querySelector('meta[name="theme-color"]').content=theme==='dark'?'#111214':'#f5f5f7';
+    themeBtn.textContent=theme==='dark'?'◐':'◑';
+  }
+
+  function activatePanel(name,{updateHash=true,focus=false}={}){
+    tabs.forEach(tab=>{
+      const active=tab.dataset.panel===name;
+      tab.setAttribute('aria-selected',String(active));
+      tab.tabIndex=active?0:-1;
+      if(active){tab.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});if(focus)tab.focus();}
+    });
+    panels.forEach(panel=>{
+      const active=panel.dataset.panelName===name;
+      panel.hidden=!active;
+      panel.classList.toggle('active',active);
+      if(active){panel.style.animation='none';void panel.offsetWidth;panel.style.animation='';}
+    });
+    if(updateHash)history.replaceState(null,'','#'+name);
+    window.scrollTo({top:document.querySelector('.tabs-shell').offsetTop-66,behavior:'smooth'});
+  }
+
+  tabs.forEach((tab,index)=>{
+    tab.addEventListener('click',()=>activatePanel(tab.dataset.panel));
+    tab.addEventListener('keydown',event=>{
+      if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+      event.preventDefault();
+      let target=index;
+      if(event.key==='ArrowRight')target=(index+1)%tabs.length;
+      if(event.key==='ArrowLeft')target=(index-1+tabs.length)%tabs.length;
+      if(event.key==='Home')target=0;
+      if(event.key==='End')target=tabs.length-1;
+      activatePanel(tabs[target].dataset.panel,{focus:true});
+    });
+  });
+
+  function updateProgress(){
+    const max=document.documentElement.scrollHeight-innerHeight;
+    const ratio=max>0?Math.min(1,Math.max(0,scrollY/max)):0;
+    pageProgress.style.width=(ratio*100)+'%';
+  }
+
   langBtn.onclick=()=>{lang=lang==='de'?'en':'de';localStorage.setItem('visuchess-privacy-lang',lang);applyLang()};
   themeBtn.onclick=()=>{theme=theme==='dark'?'light':'dark';localStorage.setItem('visuchess-privacy-theme',theme);applyTheme()};
-  applyLang();applyTheme();
+  addEventListener('scroll',updateProgress,{passive:true});
+  addEventListener('resize',updateProgress);
+
+  const initial=location.hash.replace('#','');
+  if(['overview','data','services','rights'].includes(initial))activatePanel(initial,{updateHash:false});
+  applyLang();
+  applyTheme();
+  updateProgress();
 </script>
 </body>
 </html>
