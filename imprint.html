@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="de" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111214"><meta name="description" content="Impressum und Anbieterinformationen für Visual Chess"><link rel="icon" href="assets/logo.png"><title>Visual Chess – Impressum / Legal notice</title><style>
+    :root{
+      --bg:#111214;
+      --surface:#1c1e22;
+      --text:#f4f4f5;
+      --muted:#aaa7bb;
+      --border:#303339;
+      --nav-border:#383745;
+      --purple:#8860e5;
+      --purple-soft:rgba(136,96,229,.14);
+      --purple-glow:rgba(136,96,229,.28);
+      --header:rgba(17,18,20,.86);
+    }
+    html[data-theme="light"]{
+      --bg:#f5f5f7;
+      --surface:#ffffff;
+      --text:#1a1a1a;
+      --muted:#777184;
+      --border:#e5e5ea;
+      --nav-border:#e8e5ef;
+      --purple:#7041cf;
+      --purple-soft:rgba(112,65,207,.09);
+      --purple-glow:rgba(112,65,207,.20);
+      --header:rgba(245,245,247,.88);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(760px 360px at 50% -120px,var(--purple-soft),transparent 70%),
+        var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    button{font:inherit}
+    a{color:inherit;text-underline-offset:3px}
+    .wrap{width:min(calc(100% - 32px),900px);margin:auto}
+
+    .page-progress{
+      position:fixed;top:0;left:0;z-index:50;height:4px;width:100%;
+      background:var(--purple);
+      box-shadow:0 0 18px var(--purple-glow);
+      transform:scaleX(0);transform-origin:left center;pointer-events:none;
+    }
+
+    header{
+      position:sticky;top:0;z-index:20;
+      background:var(--header);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+    }
+    .bar{height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;white-space:nowrap}
+    .brand .suffix{font-weight:600;color:var(--muted)}
+    .mark{width:38px;height:38px;border-radius:12px;overflow:hidden;flex:0 0 auto}
+    .mark img{width:100%;height:100%;display:block;object-fit:contain}
+    .controls{display:flex;align-items:center;gap:8px}
+    .icon-button{
+      min-width:44px;height:44px;padding:0 8px;
+      border:0;border-radius:0;background:transparent;
+      color:var(--text);font-weight:700;cursor:pointer;
+      transition:color .18s ease;
+    }
+    .icon-button:hover{color:var(--purple)}
+    .icon-button:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
+
+    .hero{padding:66px 0 38px;overflow:hidden}
+    .intro-label{
+      display:flex;align-items:center;gap:9px;
+      color:var(--muted);font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;
+      opacity:0;animation:fadeUp .55s .05s ease forwards;
+    }
+    .intro-dot{width:8px;height:8px;border-radius:50%;background:var(--purple);box-shadow:0 0 14px var(--purple-glow)}
+    .onboarding-line{
+      height:7px;border-radius:999px;background:var(--border);
+      overflow:hidden;margin:18px 0 34px;
+      opacity:0;animation:fadeUp .55s .10s ease forwards;
+    }
+    .onboarding-line span{
+      display:block;width:100%;height:100%;border-radius:inherit;background:var(--purple);
+      transform:scaleX(0);transform-origin:left center;
+      animation:growLine 1s .28s cubic-bezier(.22,.61,.36,1) forwards;
+      position:relative;
+    }
+    .onboarding-line span:after{content:"";position:absolute;left:1px;right:1px;top:1px;height:1px;background:rgba(255,255,255,.18);border-radius:2px}
+    h1{
+      margin:0;
+      font-size:clamp(46px,8vw,82px);
+      line-height:.96;
+      letter-spacing:-.065em;
+      max-width:790px;
+      opacity:0;animation:fadeUp .65s .18s ease forwards;
+    }
+    .lead{
+      margin:24px 0 0;max-width:700px;
+      color:var(--muted);font-size:clamp(17px,2.1vw,20px);line-height:1.6;
+      opacity:0;animation:fadeUp .65s .27s ease forwards;
+    }
+    .meta{
+      margin:20px 0 0;color:var(--muted);font-size:12px;
+      opacity:0;animation:fadeUp .65s .34s ease forwards;
+    }
+
+    .quick-facts{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+      margin-top:54px;
+      opacity:0;animation:fadeUp .65s .4s ease forwards;
+    }
+    .fact{padding:18px 18px 18px 0;position:relative}
+    .fact+.fact{padding-left:18px;border-left:1px solid var(--border)}
+    .fact strong{display:block;font-size:13px;margin-bottom:4px}
+    .fact span{display:block;color:var(--muted);font-size:12px;line-height:1.45}
+    .fact-mark{color:var(--purple);font-weight:900;margin-right:5px}
+
+    .tabs-shell{
+      position:sticky;top:66px;z-index:15;
+      background:var(--header);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+    }
+    .tabs{
+      display:flex;gap:28px;overflow-x:auto;scrollbar-width:none;
+      position:relative;
+    }
+    .tabs::-webkit-scrollbar{display:none}
+    .tab{
+      position:relative;flex:0 0 auto;
+      border:0;background:transparent;color:var(--muted);
+      padding:18px 1px 16px;
+      font-size:13px;font-weight:700;
+      cursor:pointer;
+      transition:color .22s ease,transform .22s ease;
+    }
+    .tab:hover{color:var(--text)}
+    .tab[aria-selected="true"]{color:var(--text)}
+    .tab[aria-selected="true"]:after{
+      content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:3px 3px 0 0;
+      background:var(--purple);box-shadow:0 0 12px var(--purple-glow);
+      animation:tabIn .26s ease both;
+    }
+
+    .content{padding:10px 0 86px}
+    .panel{display:none;animation:panelIn .38s cubic-bezier(.22,.61,.36,1) both}
+    .panel.active{display:block}
+    .section{
+      padding:48px 0;
+      border-bottom:1px solid var(--border);
+    }
+    .section:last-child{border-bottom:0}
+    .section-kicker{
+      color:var(--purple);font-size:10px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    h2{margin:0 0 20px;font-size:clamp(27px,4vw,38px);line-height:1.12;letter-spacing:-.045em}
+    .section>p{margin:0;max-width:760px;color:var(--muted);font-size:15px;line-height:1.75}
+
+    .statement{
+      margin-top:28px;padding:18px 0 0;
+      border-top:1px solid var(--border);
+    }
+    .statement strong{display:block;font-size:13px;margin-bottom:6px}
+    .statement p{margin:0;color:var(--muted);font-size:14px}
+
+    .data-list{margin-top:12px}
+    .data-row{
+      display:grid;grid-template-columns:minmax(170px,230px) 1fr;gap:28px;
+      padding:24px 0;border-bottom:1px solid var(--border);
+      transition:transform .2s ease;
+    }
+    .data-row:last-child{border-bottom:0}
+    .data-row:hover{transform:translateX(4px)}
+    .data-row strong{font-size:13px;line-height:1.45}
+    .data-row p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+
+    .provider-list{margin-top:12px}
+    .provider-row{
+      display:grid;grid-template-columns:150px 1fr auto;gap:24px;align-items:center;
+      padding:22px 0;border-bottom:1px solid var(--border);
+    }
+    .provider-row:last-child{border-bottom:0}
+    .provider-row strong{font-size:13px}
+    .provider-row span{color:var(--muted);font-size:13px;line-height:1.55}
+    .provider-row a{font-size:12px;font-weight:700;color:var(--purple);white-space:nowrap;text-decoration:none}
+    .provider-row a:hover{text-decoration:underline}
+
+    .rights-list{margin:22px 0 0;padding:0;list-style:none}
+    .rights-list li{
+      position:relative;padding:14px 0 14px 28px;border-bottom:1px solid var(--border);
+      color:var(--muted);font-size:14px;
+    }
+    .rights-list li:last-child{border-bottom:0}
+    .rights-list li:before{content:"";position:absolute;left:2px;top:23px;width:8px;height:8px;border-radius:50%;background:var(--purple);box-shadow:0 0 10px var(--purple-glow)}
+
+    .operator-address{font-style:normal;font-size:14px;line-height:1.8;color:var(--muted);margin:14px 0}
+
+    .contact-line{
+      margin-top:28px;padding-top:24px;border-top:1px solid var(--border);
+      display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    }
+    .contact-line strong{display:block;font-size:14px}
+    .contact-line span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+    .contact-link{
+      display:inline-flex;align-items:center;gap:8px;
+      color:#fff;background:var(--purple);text-decoration:none;
+      min-height:44px;padding:0 16px;border-radius:14px;font-size:13px;font-weight:700;
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .contact-line .contact-link span{display:inline;color:inherit;font-size:inherit;line-height:inherit;margin:0}
+    .contact-link:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--purple-glow)}
+
+    footer{border-top:1px solid var(--border);padding:26px 0 38px;color:var(--muted);font-size:12px}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes growLine{to{transform:scaleX(1)}}
+    @keyframes tabIn{from{transform:scaleX(.35);opacity:.35}to{transform:scaleX(1);opacity:1}}
+    @keyframes panelIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:760px){
+      .quick-facts{grid-template-columns:repeat(2,1fr)}
+      .fact:nth-child(3){border-left:0;border-top:1px solid var(--border);padding-left:0}
+      .fact:nth-child(4){border-top:1px solid var(--border)}
+      .data-row{grid-template-columns:1fr;gap:8px}
+      .provider-row{grid-template-columns:1fr auto;gap:6px 16px}
+      .provider-row span{grid-column:1 / -1;grid-row:2}
+      .provider-row a{grid-column:2;grid-row:1}
+    }
+    @media(max-width:520px){
+      .hero{padding-top:44px}
+      h1{font-size:clamp(43px,15vw,62px)}
+      .brand .suffix{display:none}
+      .tabs{gap:24px}
+      .quick-facts{grid-template-columns:1fr}
+      .fact,.fact+.fact{padding:16px 0;border-left:0;border-top:1px solid var(--border)}
+      .fact:first-child{border-top:0}
+      .fact:nth-child(3){border-top:1px solid var(--border)}
+      .section{padding:38px 0}
+      .provider-row{grid-template-columns:1fr}
+      .provider-row a{grid-column:1;grid-row:auto;margin-top:4px}
+      .provider-row span{grid-column:1;grid-row:auto}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+    }
+  </style><noscript><style>.controls,.page-progress{display:none}.hero *{opacity:1!important;animation:none!important}</style></noscript></head><body>
+<div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+<header><div class="wrap bar"><div class="brand"><div class="mark"><img src="assets/logo.png" alt="Visual Chess Logo"></div><span>Visual Chess</span><span class="suffix" data-de="Impressum" data-en="Legal notice">Impressum</span></div><div class="controls"><button class="icon-button" id="theme" aria-label="Darstellung wechseln">◐</button><button class="icon-button" id="lang" aria-label="Sprache wechseln">EN</button></div></div></header>
+<main><div class="wrap"><section class="hero"><h1 data-de="Impressum" data-en="Legal notice">Impressum</h1><p class="lead" data-de="Anbieterinformationen für Visual Chess." data-en="Provider information for Visual Chess.">Anbieterinformationen für Visual Chess.</p></section><div class="content"><section class="section"><h2 data-de="Anbieter und Kontakt" data-en="Provider and contact">Anbieter und Kontakt</h2><address class="operator-address">Noah Nann<br>Durlacher Allee 15<br>76131 Karlsruhe<br><span data-de="Deutschland" data-en="Germany">Deutschland</span><br><a href="mailto:noah.nann24@gmail.com">noah.nann24@gmail.com</a></address><div class="contact-line"><a class="contact-link" href="mailto:noah.nann24@gmail.com?subject=Visual%20Chess%20Kontakt"><span data-de="E-Mail schreiben" data-en="Send email">E-Mail schreiben</span></a></div></section><section class="section"><h2 data-de="Datenschutz und Nutzung" data-en="Privacy and terms">Datenschutz und Nutzung</h2><p><a data-legal-page="./" href="./" data-de="Datenschutzerklärung" data-en="Privacy Policy">Datenschutzerklärung</a> · <a data-legal-page="terms.html" href="terms.html" data-de="Nutzungsbedingungen" data-en="Terms of use">Nutzungsbedingungen</a></p></section></div></div></main>
+<footer><div class="wrap">Visual Chess · <a data-legal-page="./" href="./" data-de="Datenschutz" data-en="Privacy">Datenschutz</a> · <a data-legal-page="terms.html" href="terms.html" data-de="Nutzungsbedingungen" data-en="Terms of use">Nutzungsbedingungen</a></div></footer>
+<script>
+const params=new URLSearchParams(location.search);
+const langBtn=document.getElementById('lang'),themeBtn=document.getElementById('theme');
+const pageProgress=document.getElementById('pageProgress');
+  let progressFrame=0;
+  function updateProgress(){
+    progressFrame=0;
+    const root=document.documentElement;
+    const max=Math.max(0,root.scrollHeight-root.clientHeight);
+    const ratio=max>0?Math.min(1,Math.max(0,window.scrollY/max)):0;
+    pageProgress.style.transform='scaleX('+ratio+')';
+  }
+  function scheduleProgressUpdate(){
+    if(!progressFrame)progressFrame=requestAnimationFrame(updateProgress);
+  }
+  addEventListener('scroll',scheduleProgressUpdate,{passive:true});
+  addEventListener('resize',scheduleProgressUpdate);
+  addEventListener('pageshow',scheduleProgressUpdate);
+  if(typeof ResizeObserver!=='undefined')new ResizeObserver(scheduleProgressUpdate).observe(document.body);
+  if(document.fonts)document.fonts.ready.then(scheduleProgressUpdate);
+
+function read(key){try{return localStorage.getItem(key)}catch{return null}}
+function save(key,value){try{localStorage.setItem(key,value)}catch{}}
+const requestedLang=params.get('lang')||read('visuchess-privacy-lang');
+const requestedTheme=params.get('theme')||read('visuchess-privacy-theme');
+let lang=['de','en'].includes(requestedLang)?requestedLang:((navigator.language||'').toLowerCase().startsWith('de')?'de':'en');
+let theme=['dark','light'].includes(requestedTheme)?requestedTheme:(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+function apply(){
+ document.documentElement.lang=lang;document.documentElement.dataset.theme=theme;
+ document.querySelectorAll('[data-de][data-en]').forEach(el=>{el.textContent=el.dataset[lang]});
+ langBtn.textContent=lang==='de'?'EN':'DE';themeBtn.textContent=theme==='dark'?'◐':'◑';
+ langBtn.setAttribute('aria-label',lang==='de'?'Sprache wechseln':'Change language');themeBtn.setAttribute('aria-label',lang==='de'?'Darstellung wechseln':'Change appearance');
+ document.querySelector('meta[name="theme-color"]').content=theme==='dark'?'#111214':'#f5f5f7';
+ document.title=lang==='de'?'Visual Chess – Impressum':'Visual Chess – Legal notice';
+ document.querySelectorAll('a[data-legal-page]').forEach(link=>{link.href=link.dataset.legalPage+'?lang='+lang+'&theme='+theme});
+ scheduleProgressUpdate();
+}
+langBtn.onclick=()=>{lang=lang==='de'?'en':'de';save('visuchess-privacy-lang',lang);apply()};
+themeBtn.onclick=()=>{theme=theme==='dark'?'light':'dark';save('visuchess-privacy-theme',theme);apply()};apply();
+</script></body></html>
