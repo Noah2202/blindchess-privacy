@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#111214">
-  <meta name="description" content="Datenschutzerklärung / Privacy Policy für ViSuChess">
+  <meta name="description" content="Datenschutzerklärung / Privacy Policy für Visual Chess">
   <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="apple-touch-icon" href="assets/logo.png">
-  <title>ViSuChess – Datenschutz / Privacy Policy</title>
+  <title>Visual Chess – Datenschutz / Privacy Policy</title>
   <style>
     :root{
       --bg:#111214;
@@ -51,10 +51,10 @@
     .wrap{width:min(calc(100% - 32px),900px);margin:auto}
 
     .page-progress{
-      position:fixed;top:0;left:0;z-index:30;height:3px;width:0;
+      position:fixed;top:0;left:0;z-index:50;height:4px;width:100%;
       background:var(--purple);
       box-shadow:0 0 18px var(--purple-glow);
-      transition:width .12s linear;
+      transform:scaleX(0);transform-origin:left center;pointer-events:none;
     }
 
     header{
@@ -71,16 +71,13 @@
     .mark img{width:100%;height:100%;display:block;object-fit:contain}
     .controls{display:flex;align-items:center;gap:8px}
     .icon-button{
-      min-width:42px;height:42px;padding:0 12px;
-      border:1px solid var(--nav-border);
-      border-radius:14px;
-      background:transparent;
-      color:var(--text);
-      font-weight:700;
-      cursor:pointer;
-      transition:transform .18s ease,border-color .18s ease,background .18s ease;
+      min-width:44px;height:44px;padding:0 8px;
+      border:0;border-radius:0;background:transparent;
+      color:var(--text);font-weight:700;cursor:pointer;
+      transition:color .18s ease;
     }
-    .icon-button:hover{transform:translateY(-1px);border-color:var(--purple);background:var(--purple-soft)}
+    .icon-button:hover{color:var(--purple)}
+    .icon-button:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
 
     .hero{padding:66px 0 38px;overflow:hidden}
     .intro-label{
@@ -223,6 +220,7 @@
       min-height:44px;padding:0 16px;border-radius:14px;font-size:13px;font-weight:700;
       transition:transform .2s ease,box-shadow .2s ease;
     }
+    .contact-line .contact-link span{display:inline;color:inherit;font-size:inherit;line-height:inherit;margin:0}
     .contact-link:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--purple-glow)}
 
     footer{border-top:1px solid var(--border);padding:26px 0 38px;color:var(--muted);font-size:12px}
@@ -268,8 +266,8 @@
 <header>
   <div class="wrap bar">
     <div class="brand">
-      <div class="mark"><img src="assets/logo.png" alt="ViSuChess Logo"></div>
-      <span>ViSuChess</span>
+      <div class="mark"><img src="assets/logo.png" alt="Visual Chess Logo"></div>
+      <span>Visual Chess</span>
       <span class="suffix" data-de="Datenschutz" data-en="Privacy">Datenschutz</span>
     </div>
     <div class="controls">
@@ -282,17 +280,17 @@
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="intro-label"><span class="intro-dot"></span><span data-de="VISUCHESS · DATENSCHUTZ" data-en="VISUCHESS · PRIVACY">VISUCHESS · DATENSCHUTZ</span></div>
+      <div class="intro-label"><span class="intro-dot"></span><span data-de="VISUAL CHESS · DATENSCHUTZ" data-en="VISUAL CHESS · PRIVACY">VISUAL CHESS · DATENSCHUTZ</span></div>
       <div class="onboarding-line" aria-hidden="true"><span></span></div>
       <h1 data-de="Dein Schachtraining.<br>Deine Daten." data-en="Your chess training.<br>Your data.">Dein Schachtraining.<br>Deine Daten.</h1>
-      <p class="lead" data-de="Transparent, verständlich und ohne Kleingedrucktes: Hier erfährst du, welche Daten ViSuChess verarbeitet und warum." data-en="Transparent, understandable and without fine print: here you can see what data ViSuChess processes and why.">Transparent, verständlich und ohne Kleingedrucktes: Hier erfährst du, welche Daten ViSuChess verarbeitet und warum.</p>
+      <p class="lead" data-de="Transparent, verständlich und ohne Kleingedrucktes: Hier erfährst du, welche Daten Visual Chess verarbeitet und warum." data-en="Transparent, understandable and without fine print: here you can see what data Visual Chess processes and why.">Transparent, verständlich und ohne Kleingedrucktes: Hier erfährst du, welche Daten Visual Chess verarbeitet und warum.</p>
       <p class="meta" data-de="Stand: 15. Oktober 2026" data-en="Last updated: October 15, 2026">Stand: 15. Oktober 2026</p>
 
       <div class="quick-facts" aria-label="Kurzüberblick">
         <div class="fact"><strong><span class="fact-mark">✓</span><span data-de="Keine Werbung" data-en="No advertising">Keine Werbung</span></strong><span data-de="Keine Werbe-SDKs oder Datenverkäufe." data-en="No advertising SDKs or sale of personal data.">Keine Werbe-SDKs oder Datenverkäufe.</span></div>
         <div class="fact"><strong><span class="fact-mark">✓</span><span data-de="Lokale Daten" data-en="Local data">Lokale Daten</span></strong><span data-de="Viele Einstellungen bleiben auf deinem Gerät." data-en="Many settings remain on your device.">Viele Einstellungen bleiben auf deinem Gerät.</span></div>
         <div class="fact"><strong><span class="fact-mark">✓</span><span data-de="Optionale Konten" data-en="Optional accounts">Optionale Konten</span></strong><span data-de="Apple, Google und Lichess freiwillig." data-en="Apple, Google and Lichess are optional.">Apple, Google und Lichess freiwillig.</span></div>
-        <div class="fact"><strong><span class="fact-mark">✓</span><span data-de="Kontolöschung" data-en="Account deletion">Kontolöschung</span></strong><span data-de="Direkt in ViSuChess verfügbar." data-en="Available directly in ViSuChess.">Direkt in ViSuChess verfügbar.</span></div>
+        <div class="fact"><strong><span class="fact-mark">✓</span><span data-de="Kontolöschung" data-en="Account deletion">Kontolöschung</span></strong><span data-de="Direkt in Visual Chess verfügbar." data-en="Available directly in Visual Chess.">Direkt in Visual Chess verfügbar.</span></div>
       </div>
     </div>
   </section>
@@ -311,14 +309,14 @@
       <div class="section">
         <div class="section-kicker" data-de="01 · GRUNDLAGE" data-en="01 · BASICS">01 · GRUNDLAGE</div>
         <h2 data-de="Geltungsbereich" data-en="Scope">Geltungsbereich</h2>
-        <p data-de="Diese Datenschutzerklärung gilt für ViSuChess, eine Schach-Trainings-App mit lokalen Trainingsfunktionen, optionaler Kontosynchronisierung, Online-Partien mit Freunden, optionaler Lichess-Anbindung und Premium-Funktionen." data-en="This Privacy Policy applies to ViSuChess, a chess training app with local training features, optional account sync, online games with friends, an optional Lichess integration and Premium features.">Diese Datenschutzerklärung gilt für ViSuChess, eine Schach-Trainings-App mit lokalen Trainingsfunktionen, optionaler Kontosynchronisierung, Online-Partien mit Freunden, optionaler Lichess-Anbindung und Premium-Funktionen.</p>
+        <p data-de="Diese Datenschutzerklärung gilt für Visual Chess, eine Schach-Trainings-App mit lokalen Trainingsfunktionen, optionaler Kontosynchronisierung, Online-Partien mit Freunden, optionaler Lichess-Anbindung und Premium-Funktionen." data-en="This Privacy Policy applies to Visual Chess, a chess training app with local training features, optional account sync, online games with friends, an optional Lichess integration and Premium features.">Diese Datenschutzerklärung gilt für Visual Chess, eine Schach-Trainings-App mit lokalen Trainingsfunktionen, optionaler Kontosynchronisierung, Online-Partien mit Freunden, optionaler Lichess-Anbindung und Premium-Funktionen.</p>
         <div class="statement"><strong data-de="Diese Website selbst" data-en="This website itself">Diese Website selbst</strong><p data-de="Diese Website enthält keine eigenen Analytics-, Werbe- oder Tracking-Skripte. GitHub Pages hostet die Seite und protokolliert IP-Adressen für Sicherheitszwecke. Sprache und Darstellung werden lokal im Browser gespeichert; es werden keine eigenen Marketing-Cookies gesetzt." data-en="This website has no analytics, advertising or tracking scripts of its own. GitHub Pages hosts the site and logs IP addresses for security purposes. Language and appearance preferences are stored locally in your browser; we set no marketing cookies.">Diese Website enthält keine eigenen Analytics-, Werbe- oder Tracking-Skripte. GitHub Pages hostet die Seite und protokolliert IP-Adressen für Sicherheitszwecke. Sprache und Darstellung werden lokal im Browser gespeichert; es werden keine eigenen Marketing-Cookies gesetzt.</p></div>
       </div>
 
       <div class="section">
         <div class="section-kicker" data-de="04 · PRIVATSPHÄRE" data-en="04 · PRIVACY">04 · PRIVATSPHÄRE</div>
         <h2 data-de="Werbung, Tracking und Verkauf" data-en="Advertising, tracking and sale">Werbung, Tracking und Verkauf</h2>
-        <p data-de="ViSuChess enthält derzeit keine Drittanbieter-Werbung und keine Werbe-SDKs zum app- oder webseitenübergreifenden Tracking. Personenbezogene Daten werden nicht verkauft." data-en="ViSuChess currently contains no third-party advertising and no advertising SDKs for cross-app or cross-site tracking. Personal data is not sold.">ViSuChess enthält derzeit keine Drittanbieter-Werbung und keine Werbe-SDKs zum app- oder webseitenübergreifenden Tracking. Personenbezogene Daten werden nicht verkauft.</p>
+        <p data-de="Visual Chess enthält derzeit keine Drittanbieter-Werbung und keine Werbe-SDKs zum app- oder webseitenübergreifenden Tracking. Personenbezogene Daten werden nicht verkauft." data-en="Visual Chess currently contains no third-party advertising and no advertising SDKs for cross-app or cross-site tracking. Personal data is not sold.">Visual Chess enthält derzeit keine Drittanbieter-Werbung und keine Werbe-SDKs zum app- oder webseitenübergreifenden Tracking. Personenbezogene Daten werden nicht verkauft.</p>
       </div>
     </section>
 
@@ -328,11 +326,11 @@
         <h2 data-de="Welche Daten verarbeitet werden" data-en="Data we process">Welche Daten verarbeitet werden</h2>
         <div class="data-list">
           <div class="data-row"><strong data-de="Lokale App-Daten" data-en="Local app data">Lokale App-Daten</strong><p data-de="Sprache, Darstellung, lokal gespeicherte Partien, Trainingsergebnisse und App-Einstellungen können auf deinem Gerät gespeichert werden." data-en="Language, appearance, locally stored games, training results and app settings may be stored on your device.">Sprache, Darstellung, lokal gespeicherte Partien, Trainingsergebnisse und App-Einstellungen können auf deinem Gerät gespeichert werden.</p></div>
-          <div class="data-row"><strong data-de="ViSuChess-Konto und Apple-/Google-Anmeldung" data-en="ViSuChess account and Apple/Google sign-in">ViSuChess-Konto und Apple-/Google-Anmeldung</strong><p data-de="Bei freiwilliger Anmeldung über Apple oder Google verarbeitet Appwrite eine eindeutige Nutzer-ID, Anmelde-/Sitzungsdaten und die vom Anbieter freigegebenen Kontoinformationen, insbesondere Name und E-Mail-Adresse. Apple kann statt deiner persönlichen Adresse eine private Relay-Adresse bereitstellen; der Name wird unter Umständen nur bei der ersten Anmeldung übermittelt. Zusätzlich speichert ViSuChess deinen gewählten Nutzernamen und synchronisiert Fortschrittsdaten. Ohne Anmeldung kannst du die kostenlosen lokalen Funktionen verwenden." data-en="When you optionally sign in with Apple or Google, Appwrite processes a unique user ID, authentication/session data and the account information released by the provider, particularly your name and email address. Apple may provide a private relay address instead of your personal address; your name may only be supplied on the first sign-in. ViSuChess also stores your chosen username and syncs progress data. Free local features can be used without signing in.">Bei freiwilliger Anmeldung über Apple oder Google verarbeitet Appwrite eine eindeutige Nutzer-ID, Anmelde-/Sitzungsdaten und die vom Anbieter freigegebenen Kontoinformationen, insbesondere Name und E-Mail-Adresse. Apple kann statt deiner persönlichen Adresse eine private Relay-Adresse bereitstellen; der Name wird unter Umständen nur bei der ersten Anmeldung übermittelt. Zusätzlich speichert ViSuChess deinen gewählten Nutzernamen und synchronisiert Fortschrittsdaten. Ohne Anmeldung kannst du die kostenlosen lokalen Funktionen verwenden.</p></div>
+          <div class="data-row"><strong data-de="Visual Chess-Konto und Apple-/Google-Anmeldung" data-en="Visual Chess account and Apple/Google sign-in">Visual Chess-Konto und Apple-/Google-Anmeldung</strong><p data-de="Bei freiwilliger Anmeldung über Apple oder Google verarbeitet Appwrite eine eindeutige Nutzer-ID, Anmelde-/Sitzungsdaten und die vom Anbieter freigegebenen Kontoinformationen, insbesondere Name und E-Mail-Adresse. Apple kann statt deiner persönlichen Adresse eine private Relay-Adresse bereitstellen; der Name wird unter Umständen nur bei der ersten Anmeldung übermittelt. Zusätzlich speichert Visual Chess deinen gewählten Nutzernamen und synchronisiert Fortschrittsdaten. Ohne Anmeldung kannst du die kostenlosen lokalen Funktionen verwenden." data-en="When you optionally sign in with Apple or Google, Appwrite processes a unique user ID, authentication/session data and the account information released by the provider, particularly your name and email address. Apple may provide a private relay address instead of your personal address; your name may only be supplied on the first sign-in. Visual Chess also stores your chosen username and syncs progress data. Free local features can be used without signing in.">Bei freiwilliger Anmeldung über Apple oder Google verarbeitet Appwrite eine eindeutige Nutzer-ID, Anmelde-/Sitzungsdaten und die vom Anbieter freigegebenen Kontoinformationen, insbesondere Name und E-Mail-Adresse. Apple kann statt deiner persönlichen Adresse eine private Relay-Adresse bereitstellen; der Name wird unter Umständen nur bei der ersten Anmeldung übermittelt. Zusätzlich speichert Visual Chess deinen gewählten Nutzernamen und synchronisiert Fortschrittsdaten. Ohne Anmeldung kannst du die kostenlosen lokalen Funktionen verwenden.</p></div>
           <div class="data-row"><strong data-de="Partien und Trainingsfortschritt" data-en="Games and training progress">Partien und Trainingsfortschritt</strong><p data-de="Für angemeldete Nutzer werden gespeicherte Partien, Taktikpfad-/Trainingsfortschritt, Minispiel-Ergebnisse, Bot-Erfolge und der tägliche Taktikzähler mit der Nutzer-ID verknüpft verarbeitet, soweit du diese Funktionen verwendest." data-en="For signed-in users, saved games, tactics/training progress, mini-game results, bot achievements and the daily tactics allowance are processed in association with the user ID when these features are used.">Für angemeldete Nutzer werden gespeicherte Partien, Taktikpfad-/Trainingsfortschritt, Minispiel-Ergebnisse, Bot-Erfolge und der tägliche Taktikzähler mit der Nutzer-ID verknüpft verarbeitet, soweit du diese Funktionen verwendest.</p></div>
           <div class="data-row"><strong data-de="Online-Partien mit Freunden" data-en="Online games with friends">Online-Partien mit Freunden</strong><p data-de="Online-Freundepartien verarbeiten Nutzer-IDs, Anzeigenamen, Raum-/Einladungs-IDs, Züge, Uhren, Spielstatus und Zeitstempel. Dein Mitspieler kann die für die gemeinsame Partie benötigten Angaben sehen. Gäste erhalten dafür eine anonyme Appwrite-Sitzung mit technischer Nutzer-ID; ein Apple-/Google-Konto ist dafür nicht erforderlich." data-en="Online games with friends process user IDs, display names, room/invite IDs, moves, clocks, game status and timestamps. Your opponent can see the information needed for the shared game. Guests receive an anonymous Appwrite session with a technical user ID; an Apple/Google account is not required.">Online-Freundepartien verarbeiten Nutzer-IDs, Anzeigenamen, Raum-/Einladungs-IDs, Züge, Uhren, Spielstatus und Zeitstempel. Dein Mitspieler kann die für die gemeinsame Partie benötigten Angaben sehen. Gäste erhalten dafür eine anonyme Appwrite-Sitzung mit technischer Nutzer-ID; ein Apple-/Google-Konto ist dafür nicht erforderlich.</p></div>
           <div class="data-row"><strong data-de="Optionale Lichess-Verbindung" data-en="Optional Lichess connection">Optionale Lichess-Verbindung</strong><p data-de="Wenn du Lichess verbindest, werden dein Lichess-Konto und ein OAuth-Zugriffstoken für Konto-/Puzzle-Abfragen und das Spielen über die Board-API verarbeitet. Auf iOS und Android liegt der Token in SecureStore, im Web im lokalen Browserspeicher. Öffentliche Puzzle- und zugehörige Partiedaten, etwa für die Tagesaufgabe, werden auch ohne Lichess-Anmeldung von lichess.org geladen. Lichess erhält bei diesen Anfragen technische Verbindungsdaten wie die IP-Adresse." data-en="If you connect Lichess, your Lichess account and an OAuth access token are processed for account/puzzle requests and playing via the Board API. The token is stored in SecureStore on iOS and Android and in browser local storage on the web. Public puzzles and associated game data, for example the daily puzzle, are also loaded from lichess.org without a Lichess sign-in. Lichess receives technical connection data such as your IP address with these requests.">Wenn du Lichess verbindest, werden dein Lichess-Konto und ein OAuth-Zugriffstoken für Konto-/Puzzle-Abfragen und das Spielen über die Board-API verarbeitet. Auf iOS und Android liegt der Token in SecureStore, im Web im lokalen Browserspeicher. Öffentliche Puzzle- und zugehörige Partiedaten, etwa für die Tagesaufgabe, werden auch ohne Lichess-Anmeldung von lichess.org geladen. Lichess erhält bei diesen Anfragen technische Verbindungsdaten wie die IP-Adresse.</p></div>
-          <div class="data-row"><strong data-de="Premium und Käufe" data-en="Premium and purchases">Premium und Käufe</strong><p data-de="RevenueCat verwaltet Premium-Berechtigungen und Kaufverläufe, verknüpft mit deiner ViSuChess-Nutzer-ID. Verarbeitet werden Produkt-, Transaktions-, Beleg-, Abo- und Berechtigungsdaten sowie technische SDK-/Anfragedaten. RevenueCat ermöglicht auch kaufbezogene Auswertungen im Betreiber-Dashboard. Zahlungen werden vom jeweiligen Store bzw. Zahlungsanbieter abgewickelt; die App erhält keine vollständigen Kreditkartendaten. Bei Web-Käufen wird die Konto-E-Mail-Adresse an den RevenueCat-Checkout übergeben." data-en="RevenueCat manages Premium entitlements and purchase history associated with your ViSuChess user ID. Data includes product, transaction, receipt, subscription and entitlement information as well as technical SDK/request data. RevenueCat also provides purchase-related reporting in the operator dashboard. Payments are handled by the relevant store or payment provider; the app does not receive full credit card details. For web purchases, the account email address is passed to RevenueCat checkout.">RevenueCat verwaltet Premium-Berechtigungen und Kaufverläufe, verknüpft mit deiner ViSuChess-Nutzer-ID. Verarbeitet werden Produkt-, Transaktions-, Beleg-, Abo- und Berechtigungsdaten sowie technische SDK-/Anfragedaten. RevenueCat ermöglicht auch kaufbezogene Auswertungen im Betreiber-Dashboard. Zahlungen werden vom jeweiligen Store bzw. Zahlungsanbieter abgewickelt; die App erhält keine vollständigen Kreditkartendaten. Bei Web-Käufen wird die Konto-E-Mail-Adresse an den RevenueCat-Checkout übergeben.</p></div>
+          <div class="data-row"><strong data-de="Premium und Käufe" data-en="Premium and purchases">Premium und Käufe</strong><p data-de="RevenueCat verwaltet Premium-Berechtigungen und Kaufverläufe, verknüpft mit deiner Visual Chess-Nutzer-ID. Verarbeitet werden Produkt-, Transaktions-, Beleg-, Abo- und Berechtigungsdaten sowie technische SDK-/Anfragedaten. RevenueCat ermöglicht auch kaufbezogene Auswertungen im Betreiber-Dashboard. Zahlungen werden vom jeweiligen Store bzw. Zahlungsanbieter abgewickelt; die App erhält keine vollständigen Kreditkartendaten. Bei Web-Käufen wird die Konto-E-Mail-Adresse an den RevenueCat-Checkout übergeben." data-en="RevenueCat manages Premium entitlements and purchase history associated with your Visual Chess user ID. Data includes product, transaction, receipt, subscription and entitlement information as well as technical SDK/request data. RevenueCat also provides purchase-related reporting in the operator dashboard. Payments are handled by the relevant store or payment provider; the app does not receive full credit card details. For web purchases, the account email address is passed to RevenueCat checkout.">RevenueCat verwaltet Premium-Berechtigungen und Kaufverläufe, verknüpft mit deiner Visual Chess-Nutzer-ID. Verarbeitet werden Produkt-, Transaktions-, Beleg-, Abo- und Berechtigungsdaten sowie technische SDK-/Anfragedaten. RevenueCat ermöglicht auch kaufbezogene Auswertungen im Betreiber-Dashboard. Zahlungen werden vom jeweiligen Store bzw. Zahlungsanbieter abgewickelt; die App erhält keine vollständigen Kreditkartendaten. Bei Web-Käufen wird die Konto-E-Mail-Adresse an den RevenueCat-Checkout übergeben.</p></div>
 
           <div class="data-row"><strong data-de="Botzüge und Analysen" data-en="Bot moves and analysis">Botzüge und Analysen</strong><p data-de="Auf iOS und Android werden Brettstellungen im FEN-Format und Analyseparameter an Chess-API.com übertragen, um Stockfish-Botzüge und Bewertungen zu berechnen. Der Anbieter erhält dabei auch technische Verbindungsdaten wie die IP-Adresse. Die App übermittelt in diesen Anfragen keine Kontonamen, E-Mail-Adressen oder Appwrite-Nutzer-IDs. Im Web läuft Stockfish vorrangig lokal im Web Worker; ist dieser nicht verfügbar, kann dieselbe Online-Engine verwendet werden." data-en="On iOS and Android, board positions in FEN format and analysis parameters are sent to Chess-API.com to calculate Stockfish bot moves and evaluations. The provider also receives technical connection data such as your IP address. These requests contain no account names, email addresses or Appwrite user IDs. On the web, Stockfish primarily runs locally in a Web Worker; if unavailable, the same online engine may be used.">Auf iOS und Android werden Brettstellungen im FEN-Format und Analyseparameter an Chess-API.com übertragen, um Stockfish-Botzüge und Bewertungen zu berechnen. Der Anbieter erhält dabei auch technische Verbindungsdaten wie die IP-Adresse. Die App übermittelt in diesen Anfragen keine Kontonamen, E-Mail-Adressen oder Appwrite-Nutzer-IDs. Im Web läuft Stockfish vorrangig lokal im Web Worker; ist dieser nicht verfügbar, kann dieselbe Online-Engine verwendet werden.</p></div>
           <div class="data-row"><strong data-de="Technische Verbindungsdaten" data-en="Technical connection data">Technische Verbindungsdaten</strong><p data-de="Bei Online-Funktionen erhalten die jeweils angesprochenen Dienste die für die Verbindung erforderlichen Daten, insbesondere IP-Adresse, Anfragezeitpunkt und angeforderte Ressource sowie je nach Anfrage Browser-/App-Informationen. Diese Daten dienen der Bereitstellung, Fehlerbehebung und Sicherheit des jeweiligen Dienstes." data-en="When using online features, the contacted services receive connection data, particularly your IP address, request time and requested resource and, depending on the request, browser/app information. This data is used to provide, troubleshoot and secure the relevant service.">Bei Online-Funktionen erhalten die jeweils angesprochenen Dienste die für die Verbindung erforderlichen Daten, insbesondere IP-Adresse, Anfragezeitpunkt und angeforderte Ressource sowie je nach Anfrage Browser-/App-Informationen. Diese Daten dienen der Bereitstellung, Fehlerbehebung und Sicherheit des jeweiligen Dienstes.</p></div>
@@ -346,7 +344,7 @@
         <ul class="rights-list">
           <li data-de="Lokale Daten bleiben grundsätzlich gespeichert, bis du sie in der App bzw. im Browser löschst oder die App-Daten zurücksetzt. Geräte-Backups und geschützte Schlüssel können eine Deinstallation überdauern; das Trennen der Lichess-Verbindung entfernt den lokalen Token." data-en="Local data generally remains until you delete it in the app/browser or reset app data. Device backups and protected keys may survive uninstalling the app; disconnecting Lichess removes the local token.">Lokale Daten bleiben grundsätzlich gespeichert, bis du sie in der App bzw. im Browser löschst oder die App-Daten zurücksetzt. Geräte-Backups und geschützte Schlüssel können eine Deinstallation überdauern; das Trennen der Lichess-Verbindung entfernt den lokalen Token.</li>
           <li data-de="Konto- und Fortschrittsdaten werden für die Dauer des Kontos bzw. solange gespeichert, wie sie für die jeweilige Funktion benötigt werden." data-en="Account and progress data is stored for the lifetime of the account or as long as needed for the relevant feature.">Konto- und Fortschrittsdaten werden für die Dauer des Kontos bzw. solange gespeichert, wie sie für die jeweilige Funktion benötigt werden.</li>
-          <li data-de="Unter Profil → Konto löschen entfernt ViSuChess das aktive Appwrite-Konto, das Profil mit gespeicherten Cloud-Partien, zugeordnete Minispiel-/Bot-Erfolge und den kontobezogenen Taktikzähler. Geteilte Freundepartien sowie Daten bei RevenueCat, Stores und Lichess werden durch diese Funktion nicht automatisch gelöscht. Für weitere Löschanfragen nutze den privaten E-Mail-Kontakt unten." data-en="Under Profile → Delete account, ViSuChess removes the active Appwrite account, the profile with saved cloud games, associated mini-game/bot achievements and the account tactics allowance. Shared friend games and data held by RevenueCat, stores and Lichess are not automatically deleted by this function. Use the private email contact below for further deletion requests.">Unter Profil → Konto löschen entfernt ViSuChess das aktive Appwrite-Konto, das Profil mit gespeicherten Cloud-Partien, zugeordnete Minispiel-/Bot-Erfolge und den kontobezogenen Taktikzähler. Geteilte Freundepartien sowie Daten bei RevenueCat, Stores und Lichess werden durch diese Funktion nicht automatisch gelöscht. Für weitere Löschanfragen nutze den privaten E-Mail-Kontakt unten.</li>
+          <li data-de="Unter Profil → Konto löschen entfernt Visual Chess das aktive Appwrite-Konto, das Profil mit gespeicherten Cloud-Partien, zugeordnete Minispiel-/Bot-Erfolge und den kontobezogenen Taktikzähler. Geteilte Freundepartien sowie Daten bei RevenueCat, Stores und Lichess werden durch diese Funktion nicht automatisch gelöscht. Für weitere Löschanfragen nutze den privaten E-Mail-Kontakt unten." data-en="Under Profile → Delete account, Visual Chess removes the active Appwrite account, the profile with saved cloud games, associated mini-game/bot achievements and the account tactics allowance. Shared friend games and data held by RevenueCat, stores and Lichess are not automatically deleted by this function. Use the private email contact below for further deletion requests.">Unter Profil → Konto löschen entfernt Visual Chess das aktive Appwrite-Konto, das Profil mit gespeicherten Cloud-Partien, zugeordnete Minispiel-/Bot-Erfolge und den kontobezogenen Taktikzähler. Geteilte Freundepartien sowie Daten bei RevenueCat, Stores und Lichess werden durch diese Funktion nicht automatisch gelöscht. Für weitere Löschanfragen nutze den privaten E-Mail-Kontakt unten.</li>
           <li data-de="Bestehende Apple-Abos werden durch die Kontolöschung nicht automatisch gekündigt und müssen separat über Apple verwaltet werden." data-en="Existing Apple subscriptions are not automatically cancelled by account deletion and must be managed separately through Apple.">Bestehende Apple-Abos werden durch die Kontolöschung nicht automatisch gekündigt und müssen separat über Apple verwaltet werden.</li>
 
           <li data-de="Das Abmelden beendet die App-Sitzung, löscht aber nicht automatisch dein Cloud-Konto oder alle lokalen Trainingsdaten. Eine Lichess-Verbindung kannst du im Profil trennen; die App entfernt den Token und versucht, ihn bei Lichess zu widerrufen. Dein Lichess-Konto selbst bleibt bestehen." data-en="Signing out ends the app session but does not automatically delete your cloud account or all local training data. You can disconnect Lichess in your profile; the app removes the token and attempts to revoke it at Lichess. Your Lichess account itself remains.">Das Abmelden beendet die App-Sitzung, löscht aber nicht automatisch dein Cloud-Konto oder alle lokalen Trainingsdaten. Eine Lichess-Verbindung kannst du im Profil trennen; die App entfernt den Token und versucht, ihn bei Lichess zu widerrufen. Dein Lichess-Konto selbst bleibt bestehen.</li>
@@ -358,7 +356,7 @@
       <div class="section">
         <div class="section-kicker" data-de="03 · DIENSTE" data-en="03 · SERVICES">03 · DIENSTE</div>
         <h2 data-de="Externe Dienste" data-en="External services">Externe Dienste</h2>
-        <p data-de="ViSuChess verkauft keine personenbezogenen Daten an Werbenetzwerke oder Datenhändler. Je nach verwendeter Funktion können folgende Dienste Daten verarbeiten:" data-en="ViSuChess does not sell personal data to ad networks or data brokers. Depending on the feature used, the following services may process data:">ViSuChess verkauft keine personenbezogenen Daten an Werbenetzwerke oder Datenhändler. Je nach verwendeter Funktion können folgende Dienste Daten verarbeiten:</p>
+        <p data-de="Visual Chess verkauft keine personenbezogenen Daten an Werbenetzwerke oder Datenhändler. Je nach verwendeter Funktion können folgende Dienste Daten verarbeiten:" data-en="Visual Chess does not sell personal data to ad networks or data brokers. Depending on the feature used, the following services may process data:">Visual Chess verkauft keine personenbezogenen Daten an Werbenetzwerke oder Datenhändler. Je nach verwendeter Funktion können folgende Dienste Daten verarbeiten:</p>
         <div class="provider-list">
           <div class="provider-row"><strong>Appwrite</strong><span data-de="Authentifizierung, Datenbank, Synchronisierung, Funktionen und Online-Partien." data-en="Authentication, database, synchronization, functions and online games.">Authentifizierung, Datenbank, Synchronisierung, Funktionen und Online-Partien.</span><a href="https://appwrite.io/privacy" rel="noopener">Privacy ↗</a></div>
           <div class="provider-row"><strong>Google</strong><span data-de="Optionale Anmeldung über Google OAuth; auf Android gegebenenfalls Store-Käufe." data-en="Optional sign-in via Google OAuth; store purchases on Android where configured.">Optionale Anmeldung über Google OAuth; auf Android gegebenenfalls Store-Käufe.</span><a href="https://policies.google.com/privacy" rel="noopener">Privacy ↗</a></div>
@@ -373,7 +371,7 @@
       <div class="section">
         <div class="section-kicker" data-de="07 · SICHERHEIT" data-en="07 · SECURITY">07 · SICHERHEIT</div>
         <h2 data-de="Sicherheit und internationale Verarbeitung" data-en="Security and international processing">Sicherheit und internationale Verarbeitung</h2>
-        <p data-de="ViSuChess verwendet HTTPS-Verbindungen und kontobezogene Appwrite-Berechtigungen. Lichess-Zugriffstoken werden mobil in SecureStore und im Web im lokalen Browserspeicher gespeichert. Einige Dienstleister verarbeiten Daten international, gegebenenfalls außerhalb des Europäischen Wirtschaftsraums. Informationen zu den jeweiligen Verarbeitungsorten, Empfängern und Schutzmechanismen findest du in den verlinkten Anbieterinformationen; ergänzende Auskünfte kannst du über den Datenschutzkontakt anfordern." data-en="ViSuChess uses HTTPS connections and account-scoped Appwrite permissions. Lichess access tokens are stored in SecureStore on mobile devices and browser local storage on the web. Some providers process data internationally, potentially outside the European Economic Area. The linked provider information describes their processing locations, recipients and safeguards; you can request additional information from the privacy contact.">ViSuChess verwendet HTTPS-Verbindungen und kontobezogene Appwrite-Berechtigungen. Lichess-Zugriffstoken werden mobil in SecureStore und im Web im lokalen Browserspeicher gespeichert. Einige Dienstleister verarbeiten Daten international, gegebenenfalls außerhalb des Europäischen Wirtschaftsraums. Informationen zu den jeweiligen Verarbeitungsorten, Empfängern und Schutzmechanismen findest du in den verlinkten Anbieterinformationen; ergänzende Auskünfte kannst du über den Datenschutzkontakt anfordern.</p>
+        <p data-de="Visual Chess verwendet HTTPS-Verbindungen und kontobezogene Appwrite-Berechtigungen. Lichess-Zugriffstoken werden mobil in SecureStore und im Web im lokalen Browserspeicher gespeichert. Einige Dienstleister verarbeiten Daten international, gegebenenfalls außerhalb des Europäischen Wirtschaftsraums. Informationen zu den jeweiligen Verarbeitungsorten, Empfängern und Schutzmechanismen findest du in den verlinkten Anbieterinformationen; ergänzende Auskünfte kannst du über den Datenschutzkontakt anfordern." data-en="Visual Chess uses HTTPS connections and account-scoped Appwrite permissions. Lichess access tokens are stored in SecureStore on mobile devices and browser local storage on the web. Some providers process data internationally, potentially outside the European Economic Area. The linked provider information describes their processing locations, recipients and safeguards; you can request additional information from the privacy contact.">Visual Chess verwendet HTTPS-Verbindungen und kontobezogene Appwrite-Berechtigungen. Lichess-Zugriffstoken werden mobil in SecureStore und im Web im lokalen Browserspeicher gespeichert. Einige Dienstleister verarbeiten Daten international, gegebenenfalls außerhalb des Europäischen Wirtschaftsraums. Informationen zu den jeweiligen Verarbeitungsorten, Empfängern und Schutzmechanismen findest du in den verlinkten Anbieterinformationen; ergänzende Auskünfte kannst du über den Datenschutzkontakt anfordern.</p>
       </div>
     </section>
 
@@ -389,17 +387,17 @@
       <div class="section">
         <div class="section-kicker" data-de="08 · KONTAKT" data-en="08 · CONTACT">08 · KONTAKT</div>
         <h2 data-de="Änderungen und Kontakt" data-en="Changes and contact">Änderungen und Kontakt</h2>
-        <p data-de="Diese Datenschutzerklärung wird bei Änderungen von Funktionen, Dienstleistern oder rechtlichen Anforderungen aktualisiert. Für Auskunft, Berichtigung, Datenübertragbarkeit, Löschung oder andere Datenschutzanfragen erreichst du den ViSuChess-Betreiber privat unter noah.nann@gmail.com. Bitte verwende für personenbezogene Anliegen keine öffentlichen GitHub-Issues und sende keine Passwörter, Tokens oder vollständigen Zahlungsdaten." data-en="This Privacy Policy is updated when features, providers or legal requirements change. For access, correction, data portability, deletion or other privacy requests, contact the ViSuChess operator privately at noah.nann@gmail.com. Please do not use public GitHub issues for personal requests or send passwords, tokens or full payment details.">Diese Datenschutzerklärung wird bei Änderungen von Funktionen, Dienstleistern oder rechtlichen Anforderungen aktualisiert. Für Auskunft, Berichtigung, Datenübertragbarkeit, Löschung oder andere Datenschutzanfragen erreichst du den ViSuChess-Betreiber privat unter noah.nann@gmail.com. Bitte verwende für personenbezogene Anliegen keine öffentlichen GitHub-Issues und sende keine Passwörter, Tokens oder vollständigen Zahlungsdaten.</p>
+        <p data-de="Diese Datenschutzerklärung wird bei Änderungen von Funktionen, Dienstleistern oder rechtlichen Anforderungen aktualisiert. Für Auskunft, Berichtigung, Datenübertragbarkeit, Löschung oder andere Datenschutzanfragen erreichst du den Visual Chess-Betreiber privat unter noah.nann@gmail.com. Bitte verwende für personenbezogene Anliegen keine öffentlichen GitHub-Issues und sende keine Passwörter, Tokens oder vollständigen Zahlungsdaten." data-en="This Privacy Policy is updated when features, providers or legal requirements change. For access, correction, data portability, deletion or other privacy requests, contact the Visual Chess operator privately at noah.nann@gmail.com. Please do not use public GitHub issues for personal requests or send passwords, tokens or full payment details.">Diese Datenschutzerklärung wird bei Änderungen von Funktionen, Dienstleistern oder rechtlichen Anforderungen aktualisiert. Für Auskunft, Berichtigung, Datenübertragbarkeit, Löschung oder andere Datenschutzanfragen erreichst du den Visual Chess-Betreiber privat unter noah.nann@gmail.com. Bitte verwende für personenbezogene Anliegen keine öffentlichen GitHub-Issues und sende keine Passwörter, Tokens oder vollständigen Zahlungsdaten.</p>
         <div class="contact-line">
-          <div><strong>ViSuChess Privacy</strong><span data-de="Datenschutzfragen und Feedback" data-en="Privacy questions and feedback">Datenschutzfragen und Feedback</span></div>
-          <a class="contact-link" href="mailto:noah.nann@gmail.com?subject=ViSuChess%20Datenschutz" rel="noopener"><span data-de="E-Mail schreiben" data-en="Send email">E-Mail schreiben</span><span aria-hidden="true">→</span></a>
+          <div><strong>Visual Chess Privacy</strong><span data-de="Datenschutzfragen und Feedback" data-en="Privacy questions and feedback">Datenschutzfragen und Feedback</span></div>
+          <a class="contact-link" href="mailto:noah.nann@gmail.com?subject=Visual%20Chess%20Datenschutz" rel="noopener"><span data-de="E-Mail schreiben" data-en="Send email">E-Mail schreiben</span><span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
   </div>
 </main>
 
-<footer><div class="wrap">ViSuChess · Privacy Policy · Version 1.1 · <span data-de="Keine Tracker auf dieser Seite" data-en="No trackers on this page">Keine Tracker auf dieser Seite</span> · <a href="terms.html" data-de="Nutzungsbedingungen" data-en="Terms of use">Nutzungsbedingungen</a></div></footer>
+<footer><div class="wrap">Visual Chess · Privacy Policy · Version 1.1 · <span data-de="Keine Tracker auf dieser Seite" data-en="No trackers on this page">Keine Tracker auf dieser Seite</span> · <a href="terms.html" data-de="Nutzungsbedingungen" data-en="Terms of use">Nutzungsbedingungen</a></div></footer>
 
 <script>
   const langBtn=document.getElementById('lang');
@@ -423,7 +421,8 @@
     langBtn.setAttribute('aria-label',lang==='de'?'Sprache wechseln':'Change language');
     themeBtn.setAttribute('aria-label',lang==='de'?'Darstellung wechseln':'Change appearance');
     document.querySelectorAll('a[href^="terms.html"]').forEach(link=>{link.href='terms.html?lang='+lang+'&theme='+theme});
-    document.title=lang==='de'?'ViSuChess – Datenschutz / Privacy Policy':'ViSuChess – Privacy Policy';
+    document.title=lang==='de'?'Visual Chess – Datenschutz / Privacy Policy':'Visual Chess – Privacy Policy';
+    scheduleProgressUpdate();
   }
 
   function applyTheme(){
@@ -448,6 +447,7 @@
     });
     if(updateHash)history.replaceState(null,'','#'+name);
     window.scrollTo({top:document.querySelector('.tabs-shell').offsetTop-66,behavior:'smooth'});
+    scheduleProgressUpdate();
   }
 
   tabs.forEach((tab,index)=>{
@@ -464,16 +464,25 @@
     });
   });
 
+  let progressFrame=0;
   function updateProgress(){
-    const max=document.documentElement.scrollHeight-innerHeight;
-    const ratio=max>0?Math.min(1,Math.max(0,scrollY/max)):0;
-    pageProgress.style.width=(ratio*100)+'%';
+    progressFrame=0;
+    const root=document.documentElement;
+    const max=Math.max(0,root.scrollHeight-root.clientHeight);
+    const ratio=max>0?Math.min(1,Math.max(0,window.scrollY/max)):0;
+    pageProgress.style.transform='scaleX('+ratio+')';
   }
+  function scheduleProgressUpdate(){
+    if(!progressFrame)progressFrame=requestAnimationFrame(updateProgress);
+  }
+  addEventListener('scroll',scheduleProgressUpdate,{passive:true});
+  addEventListener('resize',scheduleProgressUpdate);
+  addEventListener('pageshow',scheduleProgressUpdate);
+  if(typeof ResizeObserver!=='undefined')new ResizeObserver(scheduleProgressUpdate).observe(document.body);
+  if(document.fonts)document.fonts.ready.then(scheduleProgressUpdate);
 
   langBtn.onclick=()=>{lang=lang==='de'?'en':'de';savePreference('visuchess-privacy-lang',lang);applyLang()};
   themeBtn.onclick=()=>{theme=theme==='dark'?'light':'dark';savePreference('visuchess-privacy-theme',theme);applyTheme()};
-  addEventListener('scroll',updateProgress,{passive:true});
-  addEventListener('resize',updateProgress);
 
   const initial=location.hash.replace('#','');
   if(['overview','data','services','rights'].includes(initial))activatePanel(initial,{updateHash:false});
